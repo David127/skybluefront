@@ -1,1 +1,266 @@
-<p>vehiculo-crear works!</p>
+
+	<div class="container mb-2 p-1 " style="border-radius: 5px; margin-top: 52px;" >
+		<div class="card ">
+			<div class="car-body ">
+				<div class="input-group input-group-sm ">
+					<button class="btn  mr-1 " type="button">
+						<i class="fas fa-fw fa-list"></i>
+					</button>
+					<label class="form-control ">
+						<a href="javascript:void(0);"><i class="fa fa-fw fa-home"></i> </a>
+						<span class="d-none d-sm-inline">
+							CONTROL /
+						</span>
+					
+						<span class="" id="lblTitulo">	VEHICULO</span>
+						<span style="float:right;line-height:20px;">
+							<span  class="fa fa-fw fa-globe hidden-xs "></span>
+						</span>
+					</label>
+					<div class="btn-group btn-group-sm">
+						<button class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action" data-action="nuevo" id="btnNuevoUsuario" title="Nuevo">
+							<span class="fa fa-fw fa-file"></span>
+						</button>
+						<button class="btn btn-outline-primary  border-secondary ml-1 text-dark btn-action" data-action="buscar" id="btnDocBuscar" title="Buscar">
+							<span class="fa fa-fw fa-search"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- VEHICULO FORMULARIO -->
+	<span class="nsPanel" id="cardVehiculosForm" >
+		<div class="container-sm p-1">
+			<div class="card" >
+				<div class="card-header p-1">
+					<div class="input-group input-group-sm">
+						<button class="btn btn-outline-secondary border-white  " type="button" title="" disabled>
+							<span class="fas fa-fw fa-user-alt fa-lg"></span>
+						</button>
+						<label class="form-control ">FORMULARIO</label>
+						<button (click)="Guardar(modelVehiculo)" class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action" id="btnVehiculoGuardar" data-action="vehiculo.guardar" type="button" title="Guardar">
+							<i class="fa fa-fw fa-save"></i>
+						</button>
+					</div>
+				</div>
+			
+				<div class="card-body p-2" style="height: 75vh;" >
+					<div class="" style="overflow-y: auto;">
+						<div class="" id="divUsuarioFormContenido">
+							
+							<form id="frmTrabajador" class="form ">
+								<div class="container">
+									<!-- Datos vehiculo -->
+									<h6>DATOS VEHICULO</h6>
+									<hr class=" dropdown-divider">
+									<div class="row mt-2">
+										<div class="col-lg-2">
+											<div class="form-group input-group-sm">
+												<label >PADRON:</label>
+												<input [(ngModel)]="modelVehiculo.padron" class="form-control" name="vehiculo_codigo" type="text">
+											</div>
+										</div>
+										<div class="col-lg-4">
+											<div class="form-group input-group-sm">
+												<label> PLACA:</label>
+												<input [(ngModel)]="modelVehiculo.placa" class="form-control" name="vehiculo_placa" type="text">
+											</div>
+										</div>
+										<div class="col-lg-2">
+											<label for="cboVehiculoMarca" > CLASE:</label>
+											<div class="input-group input-group-sm">
+												<input [(ngModel)]="modelVehiculo.clase" class="form-control" name="vehiculo_marca" type="number" >
+											</div>
+										</div>
+										<div class="col-lg-4">
+											<div class="form-group input-group-sm">
+												<label> MODELO:</label>
+												<input [(ngModel)]="modelVehiculo.modelo" class="form-control" name="vehiculo_modelo" type="text">
+											</div>
+										</div>
+									</div>
+									<div class="row mt-2">
+										<div class="col-lg-4">
+											<div class="form-group input-group-sm">
+												<label> PROPIETARIO: </label>
+												<select [(ngModel)]="modelVehiculo.propietario" class="form-select" aria-label="Default select example">
+													<option value="1">Propietario 1</option>
+													<option value="2">Propietario 2</option>
+													<option value="3">Propietario 3</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-lg-4">
+											<div class="form-group input-group-sm">
+												<label>TARJETA PROPIEDAD:</label>
+												<input [(ngModel)]="modelVehiculo.tarjeta_propiedad" class="form-control" type="text">
+											</div>
+										</div>
+										<div class="col-lg-4">
+											<div class="form-group input-group-sm">
+												<label>RUTA:</label>
+												<input [(ngModel)]="modelVehiculo.ruta" class="form-control" type="text">
+											</div>
+										</div>
+									</div>
+									<div class="row mt-2">
+										<div class="col-lg-2">
+											<div class="form-group input-group-sm">
+												<label>NRO MOTOR:</label>
+												<input [(ngModel)]="modelVehiculo.nroMotor" class="form-control" type="text">
+											</div>
+										</div>
+										<div class="col-lg-2">
+											<div class="form-group input-group-sm">
+												<label>PESO NETO:</label>
+												<input [(ngModel)]="modelVehiculo.pesoNeto" class="form-control" type="number">
+											</div>
+										</div>
+										<div class="col-lg-2">
+											<div class="form-group input-group-sm">
+												<label>PESO BRUTO:</label>
+												<input [(ngModel)]="modelVehiculo.pesoBruto" class="form-control" type="number">
+											</div>
+										</div>
+										<div class="col-lg-2">
+											<div class="form-group input-group-sm">
+												<label>MARCA:</label>
+												<input [(ngModel)]="modelVehiculo.marca" class="form-control" type="text">
+											</div>
+										</div>
+										<div class="col-lg-2">
+											<div class="form-group input-group-sm">
+												<label>NRO ASIENTOS:</label>
+												<input [(ngModel)]="modelVehiculo.nroAsientos" class="form-control" type="number">
+											</div>
+										</div>
+										<div class="col-lg-2">
+											<div class="form-group input-group-sm">
+												<label>NRO PASAJEROS:</label>
+												<input [(ngModel)]="modelVehiculo.nroPasajeros" class="form-control" type="number">
+											</div>
+										</div>
+									</div>
+									<div class="row mt-2">
+										<div class="col-lg-2">
+											<div class="form-group input-group-sm">
+												<label>TIPO COMBUSTIBLE:</label>
+												<input [(ngModel)]="modelVehiculo.tipoCombustible" class="form-control" type="text">
+											</div>
+										</div>
+										<div class="col-lg-2">
+											<div class="form-group input-group-sm">
+												<label>CARROCERIA:</label>
+												<input [(ngModel)]="modelVehiculo.carroceria" class="form-control" type="text">
+											</div>
+										</div>
+										<div class="col-lg-2">
+											<div class="form-group input-group-sm">
+												<label>COLOR:</label>
+												<input [(ngModel)]="modelVehiculo.color" class="form-control" type="color">
+											</div>
+										</div>
+										<div class="col-lg-2">
+											<div class="form-group input-group-sm">
+												<label>NRO SERIE MOTOR:</label>
+												<input [(ngModel)]="modelVehiculo.numeroSerieMotor" class="form-control" type="text">
+											</div>
+										</div>
+										<div class="col-lg-2">
+											<div class="form-group input-group-sm">
+												<label>NRO CILINDROS:</label>
+												<input [(ngModel)]="modelVehiculo.numeroCilindros" class="form-control" type="number">
+											</div>
+										</div>
+										<div class="col-lg-2">
+											<div class="form-group input-group-sm">
+												<label>NRO RUEDAS:</label>
+												<input [(ngModel)]="modelVehiculo.numeroRuedas" class="form-control" type="number">
+											</div>
+										</div>
+									</div>
+									<div class="row mt2">
+										<div class="col-lg-2">
+											<div class="form-group input-group-sm">
+												<label>LONGITUD:</label>
+												<input [(ngModel)]="modelVehiculo.logitud" class="form-control" type="number">
+											</div>
+										</div>
+										<div class="col-lg-2">
+											<div class="form-group input-group-sm">
+												<label>ALTURA:</label>
+												<input [(ngModel)]="modelVehiculo.altura" class="form-control" type="number">
+											</div>
+										</div>
+										<div class="col-lg-2">
+											<div class="form-group input-group-sm">
+												<label>ANCHO:</label>
+												<input [(ngModel)]="modelVehiculo.ancho" class="form-control" type="number">
+											</div>
+										</div>
+										<div class="col-lg-2">
+											<div class="form-group input-group-sm">
+												<label>CARGA UTIL:</label>
+												<input [(ngModel)]="modelVehiculo.cargaUtil" class="form-control" type="number">
+											</div>
+										</div>
+										<div class="col-lg-2">
+											<div class="form-group input-group-sm">
+												<label>NRO EJES:</label>
+												<input [(ngModel)]="modelVehiculo.nroEjes" class="form-control" type="number">
+											</div>
+										</div>
+										<div class="col-lg-2">
+											<div class="form-group input-group-sm">
+												<label>KILOMETRAJE:</label>
+												<input [(ngModel)]="modelVehiculo.kilomentraje" class="form-control" type="text">
+											</div>
+										</div>
+									</div>
+								</div>
+					
+							</form>
+
+						</div>
+					</div>
+				</div>
+				<div class="card-footer ">
+					<form action="javascript:void();">
+						<div class="input-group input-group-sm mt-2">
+							<button class="btn btn-outline-light border" type="button">
+								<i class="fas fa-fw fa-angle-double-left"></i>
+							</button>
+								<label class="form-control"></label>
+							<button class="btn btn-outline-light border" type="button">
+								<i class="fas fa-fw fa-angle-double-right"></i>
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</span>
+
+		<!-- USUARIO BUSCAR FILTRO -->
+	<div class="modal fade" id="dlgVehiculosBuscarFiltro" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h6 class="modal-title" id="dlgUsuarioBuscarFiltroLabel">USUARIO / BUSCAR / FILTRO</h6>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<!--
+						AQUI CODIGO ...
+					-->
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">CANCELAR</button>
+					<button type="button" class="btn btn-sm btn-primary">ACEPTAR</button>
+				</div>
+			</div>
+		</div>
+	</div>
