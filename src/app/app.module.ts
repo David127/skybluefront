@@ -14,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CargoCrearComponent } from './cargo/cargo-crear/cargo-crear.component';
+import { ViajeComponent } from './viaje/viaje.component';
+import { MenuComponent } from './menu/menu.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { CargoCrearComponent } from './cargo/cargo-crear/cargo-crear.component';
     LoginComponent,
     UserCrearComponent,
     UserListarComponent,
-    CargoCrearComponent
+    CargoCrearComponent,
+    ViajeComponent,
+    MenuComponent
   ],
   imports: [
     AppRoutingModule,
