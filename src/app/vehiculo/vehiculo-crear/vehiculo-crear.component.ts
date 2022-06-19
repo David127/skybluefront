@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Vehiculo } from 'src/app/models/vehiculo';
+import { VehiculoService } from 'src/app/service/vehiculo.service';
 
 @Component({
   selector: 'app-vehiculo-crear',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VehiculoCrearComponent implements OnInit {
 
-  constructor() { }
+  modelVehiculo: Vehiculo;
+
+  constructor(private vehiculoService: VehiculoService) { }
 
   ngOnInit(): void {
+  }
+
+  Guardar(modelVehiculo: Vehiculo) {
+    this.vehiculoService.VehiculoSave(modelVehiculo);
   }
 
 }
