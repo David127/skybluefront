@@ -11,6 +11,10 @@ import { UserListarComponent } from './auth/user/user-listar/user-listar.compone
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { CargoCrearComponent } from './cargo/cargo-crear/cargo-crear.component';
+
 
 @NgModule({
   declarations: [
@@ -21,13 +25,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     VehiculoListarComponent,
     LoginComponent,
     UserCrearComponent,
-    UserListarComponent
+    UserListarComponent,
+    CargoCrearComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

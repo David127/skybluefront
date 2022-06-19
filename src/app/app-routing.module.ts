@@ -6,6 +6,9 @@ import { UserCrearComponent } from './auth/user/user-crear/user-crear.component'
 import { UserListarComponent } from './auth/user/user-listar/user-listar.component';
 import { TrabajadorListarComponent } from './trabajador/trabajador-listar/trabajador-listar.component';
 import { TrabajadorCrearComponent } from './trabajador/trabajador-crear/trabajador-crear.component';
+import { VehiculoCrearComponent } from './vehiculo/vehiculo-crear/vehiculo-crear.component';
+import { VehiculoListarComponent } from './vehiculo/vehiculo-listar/vehiculo-listar.component';
+import { CargoCrearComponent } from './cargo/cargo-crear/cargo-crear.component';
 
 
   const routes : Routes = [
@@ -13,7 +16,10 @@ import { TrabajadorCrearComponent } from './trabajador/trabajador-crear/trabajad
     {path: 'user/crear',component: UserCrearComponent},
     {path: 'user/listar',component: UserListarComponent},
     {path: 'trabajador/listar',component: TrabajadorListarComponent},
-    {path: 'trabajador/crear',component: TrabajadorCrearComponent}
+    {path: 'trabajador/crear',component: TrabajadorCrearComponent},
+    {path: 'vehiculo/listar',component: VehiculoListarComponent},
+    {path: 'vehiculo/crear', component: VehiculoCrearComponent},
+    {path: 'cargo/crear', component: CargoCrearComponent},
   ]
 
 @NgModule({
