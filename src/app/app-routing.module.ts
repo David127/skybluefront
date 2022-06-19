@@ -9,23 +9,53 @@ import { TrabajadorCrearComponent } from './trabajador/trabajador-crear/trabajad
 import { VehiculoCrearComponent } from './vehiculo/vehiculo-crear/vehiculo-crear.component';
 import { VehiculoListarComponent } from './vehiculo/vehiculo-listar/vehiculo-listar.component';
 import { CargoCrearComponent } from './cargo/cargo-crear/cargo-crear.component';
+import { ViajeComponent } from './viaje/viaje.component';
 
 
-  const routes : Routes = [
-    {path: 'login',component: LoginComponent},
-    {path: 'user/crear',component: UserCrearComponent},
-    {path: 'user/listar',component: UserListarComponent},
-    {path: 'trabajador/listar',component: TrabajadorListarComponent},
-    {path: 'trabajador/crear',component: TrabajadorCrearComponent},
-    {path: 'vehiculo/listar',component: VehiculoListarComponent},
-    {path: 'vehiculo/crear', component: VehiculoCrearComponent},
-    {path: 'cargo/crear', component: CargoCrearComponent},
-  ]
+const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'user/crear',
+    component: UserCrearComponent
+  },
+
+  {
+    path: 'trabajador/listar',
+    component: TrabajadorListarComponent
+  },
+  {
+    path: 'trabajador/crear',
+    component: TrabajadorCrearComponent
+  },
+  {
+    path: 'vehiculo/listar',
+    component: VehiculoListarComponent
+  },
+  {
+    path: 'vehiculo/crear',
+    component: VehiculoCrearComponent
+  },
+  {
+    path: 'cargo/crear',
+    component: CargoCrearComponent
+  },
+  {
+    path: 'viaje',
+    component: ViajeComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'login'
+  }
+]
 
 @NgModule({
   declarations: [],
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
-  
+
 })
 export class AppRoutingModule { }
