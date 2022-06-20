@@ -1,1 +1,223 @@
-<p>trabajador-crear works!</p>
+<div class="container mb-2 p-1 " style="border-radius: 5px; margin-top: 52px;">
+	<div class="card ">
+			<div class="car-body ">
+					<div class="input-group input-group-sm ">
+							<button class="btn  mr-1 " type="button">
+									<i class="fas fa-fw fa-list"></i>
+							</button>
+							<label class="form-control ">
+									<a href="javascript:void(0);"><i class="fa fa-fw fa-home"></i> </a>
+									<span class="d-none d-sm-inline">
+											CONTROL /
+									</span>
+
+									<span class="" id="lblTitulo"> TRABAJOR</span>
+									<span style="float:right;line-height:20px;">
+											<span class="fa fa-fw fa-globe hidden-xs "></span>
+									</span>
+							</label>
+							<div class="btn-group btn-group-sm">
+									<button class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action"
+											data-action="nuevo" id="btnNuevoUsuario" title="Nuevo">
+											<span class="fa fa-fw fa-file"></span>
+									</button>
+									<button class="btn btn-outline-primary  border-secondary ml-1 text-dark btn-action"
+											data-action="buscar" id="btnDocBuscar" title="Buscar">
+											<span class="fa fa-fw fa-search"></span>
+									</button>
+							</div>
+					</div>
+			</div>
+	</div>
+</div>
+<!-- VEHICULO FORMULARIO -->
+<span class="nsPanel" id="cardVehiculosForm">
+	<div class="container-sm p-1">
+			<div class="card">
+					<div class="card-header p-1">
+							<div class="input-group input-group-sm">
+									<button class="btn btn-outline-secondary border-white  " type="button" title="" disabled>
+											<span class="fas fa-fw fa-user-alt fa-lg"></span>
+									</button>
+									<label class="form-control ">FORMULARIO</label>
+									<button (click)="Guardar(modelTrabajador)"
+											class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action"
+											id="btnVehiculoGuardar" data-action="vehiculo.guardar" type="button" title="Guardar">
+											<i class="fa fa-fw fa-save"></i>
+									</button>
+							</div>
+					</div>
+
+					<div class="card-body p-2" style="height: 75vh;">
+							<div class="" style="overflow-y: auto;">
+									<div class="" id="divUsuarioFormContenido">
+
+											<form id="frmTrabajador" class="form ">
+													<div class="container">
+															<!-- Datos Trabajador -->
+															<h6>DATOS TRABAJADOR</h6>
+															<hr class=" dropdown-divider">
+															<div class="row mt-2">
+																	<div class="col-lg-4">
+																			<div class="form-group input-group-sm">
+																					<label> NOMBRE:</label>
+																					<input [(ngModel)]="modelTrabajador.nombre" class="form-control"
+																							name="nombre" type="text">
+																			</div>
+																	</div>
+																	<div class="col-lg-2">
+																			<div class="form-group input-group-sm">
+																					<label> A.PATERNO:</label>
+																					<input [(ngModel)]="modelTrabajador.apellidoPaterno" class="form-control"
+																							name="apellidoPaterno" type="text">
+																			</div>
+																	</div>
+																	<div class="col-lg-4">
+																			<div class="form-group input-group-sm">
+																					<label> A.MATERNO:</label>
+																					<input [(ngModel)]="modelTrabajador.apellidoMaterno" class="form-control"
+																							name="apellidoMaterno" type="text">
+																			</div>
+																	</div>
+															</div>
+															<div class="row mt-2">
+																	<div class="col-lg-4">
+																			<div class="form-group input-group-sm">
+																					<label> TIPO DOCUMENTO: </label>
+																					<select [(ngModel)]="modelTrabajador.tipoDocumento" class="form-select"
+																							aria-label="Default select example">
+																							<option value="1">Propietario 1</option>
+																							<option value="2">Propietario 2</option>
+																							<option value="3">Propietario 3</option>
+																					</select>
+																			</div>
+																	</div>
+																	<div class="col-lg-4">
+																			<div class="form-group input-group-sm">
+																					<label>NRO DOCUMENTO:</label>
+																					<input [(ngModel)]="modelTrabajador.nroDocumento" class="form-control"
+																							type="text">
+																			</div>
+																	</div>
+																	<div class="col-lg-4">
+																			<div class="form-group input-group-sm">
+																					<label>TELEFONO:</label>
+																					<input [(ngModel)]="modelTrabajador.telefono" class="form-control" type="text">
+																			</div>
+																	</div>
+															</div>
+															<div class="row mt-2">
+																	<div class="col-lg-2">
+																			<div class="form-group input-group-sm">
+																					<label>CORREO:</label>
+																					<input [(ngModel)]="modelTrabajador.correo" class="form-control"
+																							type="text">
+																			</div>
+																	</div>
+																	<div class="col-lg-2">
+																			<div class="form-group input-group-sm">
+																					<label>DIRECCION:</label>
+																					<input [(ngModel)]="modelTrabajador.direccion" class="form-control"
+																							type="text">
+																			</div>
+																	</div>
+																	<div class="col-lg-2">
+																			<div class="form-group input-group-sm">
+																					<label>SEXO:</label>
+																					<select [(ngModel)]="modelTrabajador.sexo" class="form-select"
+																							aria-label="Default select example">
+																							<option value="1">MASCULINO</option>
+																							<option value="2">FEMENINO</option>
+																					</select>
+																			</div>
+																	</div>
+																	<div class="col-lg-2">
+																			<div class="form-group input-group-sm">
+																					<label>ESTADO CIVIL:</label>
+																					<input [(ngModel)]="modelTrabajador.estadoCivil" class="form-control"
+																							type="text">
+																			</div>
+																	</div>
+																	<div class="col-lg-2">
+																			<div class="form-group input-group-sm">
+																					<label>FECHA NACIMIENTO:</label>
+																					<input [(ngModel)]="modelTrabajador.fechaNacimiento" class="form-control"
+																							type="date">
+																			</div>
+																	</div>
+															</div>
+															<div class="row mt-2">
+																	<div class="col-lg-2">
+																			<div class="form-group input-group-sm">
+																					<label>FECHA INGRESO:</label>
+																					<input [(ngModel)]="modelTrabajador.fechaIngreso" class="form-control"
+																							type="date">
+																			</div>
+																	</div>
+																	<div class="col-lg-2">
+																			<div class="form-group input-group-sm">
+																					<label>FECHA SALIDA:</label>
+																					<input [(ngModel)]="modelTrabajador.fechaSalida" class="form-control"
+																							type="date">
+																			</div>
+																	</div>
+																	<div class="col-lg-2">
+																			<div class="form-group input-group-sm">
+																					<label>OBSERVACION:</label>
+																					<input [(ngModel)]="modelTrabajador.observacion" class="form-control" type="text">
+																			</div>
+																	</div>
+																	<div class="col-lg-2">
+																			<div class="form-group input-group-sm">
+																					<label>ESTADO:</label>
+																					<input [(ngModel)]="modelTrabajador.estado" class="form-control"
+																							type="text">
+																			</div>
+																	</div>
+															</div>
+													</div>
+											</form>
+
+									</div>
+							</div>
+					</div>
+					<div class="card-footer ">
+							<form action="javascript:void();">
+									<div class="input-group input-group-sm mt-2">
+											<button class="btn btn-outline-light border" type="button">
+													<i class="fas fa-fw fa-angle-double-left"></i>
+											</button>
+											<label class="form-control"></label>
+											<button class="btn btn-outline-light border" type="button">
+													<i class="fas fa-fw fa-angle-double-right"></i>
+											</button>
+									</div>
+							</form>
+					</div>
+			</div>
+	</div>
+</span>
+
+<!-- USUARIO BUSCAR FILTRO -->
+<div class="modal fade" id="dlgVehiculosBuscarFiltro" data-backdrop="static" data-keyboard="false" tabindex="-1"
+	aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg modal-dialog-scrollable">
+			<div class="modal-content">
+					<div class="modal-header">
+							<h6 class="modal-title" id="dlgUsuarioBuscarFiltroLabel">USUARIO / BUSCAR / FILTRO</h6>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+							</button>
+					</div>
+					<div class="modal-body">
+							<!--
+					AQUI CODIGO ...
+				-->
+					</div>
+					<div class="modal-footer">
+							<button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">CANCELAR</button>
+							<button type="button" class="btn btn-sm btn-primary">ACEPTAR</button>
+					</div>
+			</div>
+	</div>
+</div>

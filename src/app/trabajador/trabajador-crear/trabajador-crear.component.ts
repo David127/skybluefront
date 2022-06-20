@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Trabajador } from 'src/app/models/trabajador';
 
 @Component({
   selector: 'app-trabajador-crear',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrabajadorCrearComponent implements OnInit {
 
+  modelTrabajador: Trabajador;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  Guardar(modelVehiculo: Trabajador) {
+    // this.vehiculoService.VehiculoSave(modelVehiculo);
+  }
 }

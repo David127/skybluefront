@@ -13,6 +13,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConductorCrearComponent } from './conductor/conductor-crear/conductor-crear.component';
 import { ConductorListarComponent } from './conductor/conductor-listar/conductor-listar.component';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { CargoCrearComponent } from './cargo/cargo-crear/cargo-crear.component';
 
 @NgModule({
   declarations: [
@@ -25,13 +28,16 @@ import { ConductorListarComponent } from './conductor/conductor-listar/conductor
     UserCrearComponent,
     UserListarComponent,
     ConductorCrearComponent,
-    ConductorListarComponent
+    ConductorListarComponent,
+    CargoCrearComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
