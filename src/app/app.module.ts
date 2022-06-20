@@ -16,6 +16,8 @@ import { RouterModule } from '@angular/router';
 import { CargoCrearComponent } from './cargo/cargo-crear/cargo-crear.component';
 import { ViajeComponent } from './viaje/viaje.component';
 import { MenuComponent } from './menu/menu.component';
+import { ConductorCrearComponent } from './conductor/conductor-crear/conductor-crear.component';
+import { ConductorListarComponent } from './conductor/conductor-listar/conductor-listar.component';
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import { MenuComponent } from './menu/menu.component';
     TrabajadorCrearComponent,
     VehiculoCrearComponent,
     VehiculoListarComponent,
+    ConductorCrearComponent,
+    ConductorListarComponent,
     LoginComponent,
     UserCrearComponent,
     UserListarComponent,
