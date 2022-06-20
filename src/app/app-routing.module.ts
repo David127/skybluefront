@@ -15,36 +15,44 @@ import { ViajeComponent } from './viaje/viaje.component';
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    title: 'Inicio',
   },
   {
     path: 'user/crear',
-    component: UserCrearComponent
+    component: UserCrearComponent,
+    title: 'User'
   },
 
   {
     path: 'trabajador/listar',
-    component: TrabajadorListarComponent
+    component: TrabajadorListarComponent,
+    title: 'Trabajador'
   },
   {
     path: 'trabajador/crear',
-    component: TrabajadorCrearComponent
+    component: TrabajadorCrearComponent,
+    title: 'Trabajador'
   },
   {
     path: 'vehiculo/listar',
-    component: VehiculoListarComponent
+    component: VehiculoListarComponent,
+    title: 'Vehiculo'
   },
   {
     path: 'vehiculo/crear',
-    component: VehiculoCrearComponent
+    component: VehiculoCrearComponent,
+    title: 'Vehiculo'
   },
   {
     path: 'cargo/crear',
-    component: CargoCrearComponent
+    component: CargoCrearComponent,
+    title: 'Cargo'
   },
   {
     path: 'viaje',
-    component: ViajeComponent
+    component: ViajeComponent,
+    title: 'Viaje'
   },
   {
     path: '**',
