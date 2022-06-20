@@ -11,11 +11,12 @@ import { UserListarComponent } from './auth/user/user-listar/user-listar.compone
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ConductorCrearComponent } from './conductor/conductor-crear/conductor-crear.component';
-import { ConductorListarComponent } from './conductor/conductor-listar/conductor-listar.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CargoCrearComponent } from './cargo/cargo-crear/cargo-crear.component';
+import { ViajeComponent } from './viaje/viaje.component';
+import { MenuComponent } from './menu/menu.component';
+
 
 @NgModule({
   declarations: [
@@ -27,9 +28,9 @@ import { CargoCrearComponent } from './cargo/cargo-crear/cargo-crear.component';
     LoginComponent,
     UserCrearComponent,
     UserListarComponent,
-    ConductorCrearComponent,
-    ConductorListarComponent,
-    CargoCrearComponent
+    CargoCrearComponent,
+    ViajeComponent,
+    MenuComponent
   ],
   imports: [
     AppRoutingModule,
