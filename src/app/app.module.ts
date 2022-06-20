@@ -11,6 +11,8 @@ import { UserListarComponent } from './auth/user/user-listar/user-listar.compone
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ConductorCrearComponent } from './conductor/conductor-crear/conductor-crear.component';
+import { ConductorListarComponent } from './conductor/conductor-listar/conductor-listar.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     VehiculoListarComponent,
     LoginComponent,
     UserCrearComponent,
-    UserListarComponent
+    UserListarComponent,
+    ConductorCrearComponent,
+    ConductorListarComponent
   ],
   imports: [
     AppRoutingModule,

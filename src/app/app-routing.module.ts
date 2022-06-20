@@ -6,6 +6,8 @@ import { UserCrearComponent } from './auth/user/user-crear/user-crear.component'
 import { UserListarComponent } from './auth/user/user-listar/user-listar.component';
 import { TrabajadorListarComponent } from './trabajador/trabajador-listar/trabajador-listar.component';
 import { TrabajadorCrearComponent } from './trabajador/trabajador-crear/trabajador-crear.component';
+import { ConductorListarComponent } from './conductor/conductor-listar/conductor-listar.component';
+import { ConductorCrearComponent } from './conductor/conductor-crear/conductor-crear.component';
 
 
   const routes : Routes = [
@@ -13,7 +15,9 @@ import { TrabajadorCrearComponent } from './trabajador/trabajador-crear/trabajad
     {path: 'user/crear',component: UserCrearComponent},
     {path: 'user/listar',component: UserListarComponent},
     {path: 'trabajador/listar',component: TrabajadorListarComponent},
-    {path: 'trabajador/crear',component: TrabajadorCrearComponent}
+    {path: 'trabajador/crear',component: TrabajadorCrearComponent},
+    {path: 'conductor/listar', component: ConductorListarComponent},
+    {path: 'conductor/crear', component: ConductorCrearComponent}
   ]
 
 @NgModule({
