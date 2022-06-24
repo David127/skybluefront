@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Conductor } from '../models/conductor';
 
 @Injectable({
     providedIn: 'root'
@@ -32,4 +33,9 @@ export class ConductorService {
 		);
 
     }
+
+    public conductorRegistrar(conductorNuevo: Conductor): Observable<any> {
+      return this.HttpClient.post<any>(this.apiUrl + 'registrar', conductorNuevo);
+  
+    }  
 }
