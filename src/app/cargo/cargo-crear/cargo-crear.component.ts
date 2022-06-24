@@ -22,9 +22,9 @@ export class CargoCrearComponent implements OnInit {
     
   }
 
-
+/*
   Guardar(modelCargo) {
     this.cargoService.CargoSave(modelCargo).subscribe(() => {});
-  }
+  }*/
 
 }
