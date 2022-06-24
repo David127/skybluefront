@@ -55,6 +55,9 @@ export class TrabajadorActualizarComponent implements OnInit {
     let trabajador = localStorage.getItem('trabajador');
     this.trabajadores = JSON.parse(trabajador)
   }
+/**
+ * It updates the data of the employee.
+ */
   Actualizar() {
     this.trabajadorService.trabajadorActualizar(this.trabajadores).forEach(
       data => {
