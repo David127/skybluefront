@@ -29,6 +29,7 @@ export class TrabajadorCrearComponent implements OnInit {
   distritos: Ubigeo[] = [];
 
   trabajadores: Trabajador = {
+    id:0,
     cargo: {
       id: 1
     },
@@ -37,7 +38,8 @@ export class TrabajadorCrearComponent implements OnInit {
       departamento: "-1",
       provincia: "-1",
       distrito: "-1",
-    }
+    },
+    sueldos:[]
   };
 
   constructor(
@@ -54,32 +56,67 @@ export class TrabajadorCrearComponent implements OnInit {
    }
 
   ngOnInit(): void {
-  
+    this.cargarCargo();
   }
 
+/**
+ * A function that allows you to register a worker in the database.
+ */
 
-  Guardar(modelVehiculo: Trabajador) {
-    // this.vehiculoService.VehiculoSave(modelVehiculo);
+ registrar() {
+    this.trabajadorService.trabajadorRegistrar(this.trabajadores).subscribe(
+      data => {
+          this.router.navigate(['/trabajador/listar']);
+        
+      }, err => {
+        // console.log(err);
+        if (err.error === null) {
+          this.tokenService.logOut();
+          this.router.navigate(['/login'])
+        }
+        this.errMsj = err.error.mensaje || err.error.mesaje;
+      }
+    )
   }
 
-
+/**
+ * It loads the provinces of the selected department.
+ */
   cargaProvincia() {
     this.ubigeoService.listaProvincias(this.trabajadores.ubigeo?.departamento).subscribe(
       response => this.provincias = response
     );
   }
 
+/**
+ * It loads the districts of the selected province.
+ */
   cargaDistrito() {
     this.ubigeoService.listaDistritos(this.trabajadores.ubigeo?.departamento, this.trabajadores.ubigeo?.provincia).subscribe(
       response => this.distritos = response
     );
   }
 
+
+/**
+ * It loads the cargo list
+ */
   cargarCargo() {
-    // this.cargoService.cargoListar().subscribe(
-    //   response => this.cargos = response
-    // )
+    var page = 1;
+    var pageSize = 100;
+    this.cargoService.cargoListar(page,pageSize).subscribe(
+      data => {
+        this.cargos = data.data
+      console.log(data)
+      }
+    ), err => {
+      if (err.error === null) {
+        this.tokenService.logOut();
+        this.router.navigate(['/login'])
+      }
+      this.errMsj = err.error.mensaje || err.error.mesaje;
+     
+    }
   }
-  
   
 }
