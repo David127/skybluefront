@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Trabajador } from '../models/trabajador';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,6 @@ export class TrabajadorService {
   constructor(private HttpClient: HttpClient) { }
 
 	public trabajadorListar( page: number, pageSize: number): Observable<any> {
-		// let httpParams = new HttpParams();
-		// httpParams.set('page', page);
-		// httpParams.set('estado', estado);
-		// httpParams.set('order', order);
-		// httpParams.set('asc', asc);
 		let httpParams = new HttpParams(
 			{
 				fromObject: {
@@ -32,6 +28,11 @@ export class TrabajadorService {
 					.set('Content-Type', 'application/x-www-form-urlencoded')
 			}
 		);
+
+	}
+
+  public trabajadorRegistrar(trabajadorNuevo: Trabajador): Observable<any> {
+		return this.HttpClient.post<any>(this.apiUrl + 'registrar', trabajadorNuevo);
 
 	}
 }
