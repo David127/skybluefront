@@ -12,6 +12,14 @@ import { CargoCrearComponent } from './cargo/cargo-crear/cargo-crear.component';
 import { ViajeComponent } from './viaje/viaje.component';
 import { ConductorCrearComponent } from './conductor/conductor-crear/conductor-crear.component';
 import { ConductorListarComponent } from './conductor/conductor-listar/conductor-listar.component';
+import { VehiculoActualizarComponent } from './vehiculo/vehiculo-actualizar/vehiculo-actualizar.component';
+import { TrabajadorActualizarComponent } from './trabajador/trabajador-actualizar/trabajador-actualizar.component';
+import { ConductorActualizarComponent } from './conductor/conductor-actualizar/conductor-actualizar.component';
+import { CargoListarComponent } from './cargo/cargo-listar/cargo-listar.component';
+import { CargoActualizarComponent } from './cargo/cargo-actualizar/cargo-actualizar.component';
+import { PropietarioCrearComponent } from './propietario/propietario-crear/propietario-crear.component';
+import { PropietarioListarComponent } from './propietario/propietario-listar/propietario-listar.component';
+import { PropietarioActualizarComponent } from './propietario/propietario-actualizar/propietario-actualizar.component';
 
 
 const routes: Routes = [
@@ -32,6 +40,11 @@ const routes: Routes = [
     title: 'Trabajador'
   },
   {
+    path: 'trabajador/actualizar',
+    component: TrabajadorActualizarComponent,
+    title: 'Trabajador'
+  },
+  {
     path: 'trabajador/crear',
     component: TrabajadorCrearComponent,
     title: 'Trabajador'
@@ -47,6 +60,11 @@ const routes: Routes = [
     title: 'Vehiculo'
   },
   {
+    path: 'vehiculo/-actualizar',
+    component: VehiculoActualizarComponent,
+    title: 'Vehiculo'
+  },
+  {
     path: 'conductor/crear',
     component: ConductorCrearComponent,
     title: 'Conductor'
@@ -57,8 +75,38 @@ const routes: Routes = [
     title: 'Conductor'
   },
   {
+    path: 'conductor/actualizar',
+    component: ConductorActualizarComponent,
+    title: 'Conductor'
+  },
+  {
     path: 'cargo/crear',
     component: CargoCrearComponent,
+    title: 'Cargo'
+  },
+  {
+    path: 'cargo/listar',
+    component: CargoListarComponent,
+    title: 'Cargo'
+  },
+  {
+    path: 'cargo/actualizar',
+    component: CargoActualizarComponent,
+    title: 'Cargo'
+  },
+  {
+    path: 'propietario/crear',
+    component: PropietarioCrearComponent,
+    title: 'Cargo'
+  },
+  {
+    path: 'propietario/listar',
+    component: PropietarioListarComponent,
+    title: 'Cargo'
+  },
+  {
+    path: 'propietario/actualizar',
+    component: PropietarioActualizarComponent,
     title: 'Cargo'
   },
   {
