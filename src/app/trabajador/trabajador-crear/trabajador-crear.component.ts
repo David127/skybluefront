@@ -74,5 +74,12 @@ export class TrabajadorCrearComponent implements OnInit {
       response => this.distritos = response
     );
   }
+
+  cargarCargo() {
+    // this.cargoService.cargoListar().subscribe(
+    //   response => this.cargos = response
+    // )
+  }
+  
   
 }
