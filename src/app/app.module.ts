@@ -18,6 +18,14 @@ import { ViajeComponent } from './viaje/viaje.component';
 import { MenuComponent } from './menu/menu.component';
 import { ConductorCrearComponent } from './conductor/conductor-crear/conductor-crear.component';
 import { ConductorListarComponent } from './conductor/conductor-listar/conductor-listar.component';
+import { VehiculoActualizarComponent } from './vehiculo/vehiculo-actualizar/vehiculo-actualizar.component';
+import { ConductorActualizarComponent } from './conductor/conductor-actualizar/conductor-actualizar.component';
+import { CargoActualizarComponent } from './cargo/cargo-actualizar/cargo-actualizar.component';
+import { CargoListarComponent } from './cargo/cargo-listar/cargo-listar.component';
+import { PropietarioListarComponent } from './propietario/propietario-listar/propietario-listar.component';
+import { PropietarioCrearComponent } from './propietario/propietario-crear/propietario-crear.component';
+import { PropietarioActualizarComponent } from './propietario/propietario-actualizar/propietario-actualizar.component';
+import { interceptorProvider } from './interceptor/login.interceptor';
 
 
 @NgModule({
@@ -34,7 +42,14 @@ import { ConductorListarComponent } from './conductor/conductor-listar/conductor
     UserListarComponent,
     CargoCrearComponent,
     ViajeComponent,
-    MenuComponent
+    MenuComponent,
+    VehiculoActualizarComponent,
+    ConductorActualizarComponent,
+    CargoActualizarComponent,
+    CargoListarComponent,
+    PropietarioListarComponent,
+    PropietarioCrearComponent,
+    PropietarioActualizarComponent
   ],
   imports: [
     AppRoutingModule,
@@ -44,7 +59,7 @@ import { ConductorListarComponent } from './conductor/conductor-listar/conductor
     FormsModule,
     RouterModule
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
