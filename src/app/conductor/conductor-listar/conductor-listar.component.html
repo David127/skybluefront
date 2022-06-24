@@ -45,47 +45,32 @@
 				</div>
 			</div>
 			<div class="card-body p-2 overflow-auto" style="height: 75vh;" id="myTable">
-				<table class="table table-sm">
+				<table class="table table-responsive">
 					<thead>
 						<tr>
-
-							<th>Nombre</th>
-							<th>A. Paterno</th>
-							<th>A. Materno</th>
-							<th>N° Documento</th>
-							<th>Telefono</th>
-							<th>Correo</th>
-							<th>Direccion</th>
-							<th>Sexo</th>
-							<th>Estado de Licencia</th>
-                            <th></th>
-
+							<th scope="col">NOMBRE</th>
+							<th scope="col">APELLIDOS</th>
+							<th scope="col">DOC</th>
+							<th scope="col">TELEFONO</th>
+							<th scope="col">CORREO</th>
+							<th scope="col">DIRECCION</th>
+							<th scope="col">SEXO</th>
+							<th scope="col">ESTADO</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="text-center">
-							                            
-							<td text="nombre"> A</td>	
-							<td text="apellidoPaterno"> B</td>
-							<td text="apellidoMaterno"> C</td>
-							<td text="nroDocumento"> D</td>
-							<td text="telefono"> E</td>
-							<td text="correo"> F</td>
-							<td text="direccion"> G</td>
-							<td text="sexo"> H</td>
-							<td text="estadoLicencia"> I</td>
-
+						<tr *ngFor=" let c of conductores, let indice=index" class="text-center">
+							<!-- <th scope="row">{{indice+1}}</th> -->
+							<td>{{ c.nombre }}</td>	
+							<td>{{ c.apellidoPaterno }}  {{ c.apellidoMaterno }}</td>
+							<td> {{ c.nroDocumento }}</td>
+							<td> {{ c.telefono }}</td>
+							<td> {{ c.correo }}</td>
+							<td>{{ c.direccion }}</td>
+							<td>{{ c.sexo }}</td>
+							<td>{{c.estadoLicencia}}</td>
 							<td>
-                                <form  method="post">
-                                    <input type="hidden" name="id">
-								    <button  type="submit" class="btn btn-sm btn-warning "> <i class="fas fa-fw fa-pencil-alt"></i></button>
-                                </form>
-							</td>
-							<td>
-                                <form  method="post">
-                                    <input type="hidden" name="id">
-								    <button  type="submit" class="btn btn-sm btn-danger "> <i class="far fa-times-circle"></i></button>
-                                </form>
+								<button  [name]="c" style="width: 60px" class="btn btn-primary btn-sm"> <i class="fa-solid fa-pencil"></i></button>
 							</td>
 						</tr>
 					</tbody>
