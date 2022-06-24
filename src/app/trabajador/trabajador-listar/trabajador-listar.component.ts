@@ -21,7 +21,7 @@ export class TrabajadorListarComponent implements OnInit {
   roles: string[];
   isAdmin = false;
   page = 1;
-  pageSize = 10;
+  pageSize = 15;
 
   totalPages: number;
   numberOfElements: number;
@@ -36,16 +36,19 @@ export class TrabajadorListarComponent implements OnInit {
   ngOnInit(): void {
     this.cargarTrabajador()
   }
+  Nuevo(){
+    this.router.navigate(['trabajador/crear'])
+  }
 
- /**
-  * It loads the list of workers
-  */
+  /**
+   * It loads the list of workers
+   */
   cargarTrabajador() {
     this.trabajadorService.trabajadorListar(this.page, this.pageSize).forEach(
       (data: any) => {
-        this.trabajadores     = data.data;
-        this.isFirst          = data.pagination.isFirst;
-        this.isLast           = data.pagination.isLast;
+        this.trabajadores = data.data;
+        this.isFirst = data.pagination.isFirst;
+        this.isLast = data.pagination.isLast;
         this.numberOfElements = data.pagination.numberOfElements;
       }).catch((error: any) => {
         console.log(error);
@@ -57,18 +60,28 @@ export class TrabajadorListarComponent implements OnInit {
 
   }
 
-/**
- * If the current page is not the first page, then decrement the page number and reload the data
- */
+
+ /**
+  * It takes a Trabajador object as a parameter and stores it in local storage.
+  * @param {Trabajador} t - Trabajador
+  */
+  buscarTrabajador(t: Trabajador) {
+    localStorage.setItem("trabajador", JSON.stringify(t));
+    this.router.navigate(["/trabajador/actualizar"]);
+  }
+
+  /**
+   * If the current page is not the first page, then decrement the page number and reload the data
+   */
   rewind(): void {
     if (!this.isFirst) {
       this.page--;
       this.cargarTrabajador();
     }
   }
-/**
- * It increments the page number and calls the cargarTrabajador() function.
- */
+  /**
+   * It increments the page number and calls the cargarTrabajador() function.
+   */
   forward(): void {
     if (!this.isLast) {
       this.page++;
