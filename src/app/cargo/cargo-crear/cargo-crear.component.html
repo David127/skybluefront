@@ -40,9 +40,7 @@
 						<span class="fas fa-fw fa-user-alt fa-lg"></span>
 					</button>
 					<label class="form-control ">FORMULARIO</label>
-					<button (click)="Guardar(modelCargo)"
-						class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action"
-						id="btnVehiculoGuardar" type="button" title="Guardar">
+					<button  class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action"  type="button" (click)="registrar()" >
 						<i class="fa fa-fw fa-save"></i>
 					</button>
 				</div>
@@ -52,7 +50,7 @@
 				<div class="" style="overflow-y: auto;">
 					<div class="" id="divUsuarioFormContenido">
 
-						<form id="frmTrabajador" class="form" method="POST">
+						<form id="frmCargo" class="form" method="POST">
 							<div class="container">
 								<!-- Datos Cargo -->
 
@@ -61,22 +59,22 @@
 									<div class="col">
 										<div class="form-group input-group-sm">
 											<label> NOMBRE:</label>
-											<input [(ngModel)]="modelCargo.nombre" class="form-control" name="nombre"
-												type="text">
+											<input [(ngModel)]="cargos.nombre" class="form-control" name="nombre"
+												type="text" placeholder="Nombre">
 										</div>
 									</div>
 									<div class="col">
 										<div class="form-group input-group-sm">
 											<label> DESCRIPCION:</label>
-											<input [(ngModel)]="modelCargo.descripcion" class="form-control"
-												name="descripcion" type="text">
+											<input [(ngModel)]="cargos.descripcion" class="form-control"
+												name="descripcion" type="text" placeholder="Descripcion">
 										</div>
 									</div>
 									<div class="col">
 										<div class="form-group input-group-sm">
 											<label> RESPONSABLE:</label>
-											<input [(ngModel)]="modelCargo.responsable" class="form-control"
-												name="responsable" type="text">
+											<input [(ngModel)]="cargos.responsable" class="form-control"
+												name="responsable" type="text" placeholder="Responsable">
 										</div>
 									</div>
 								</div>

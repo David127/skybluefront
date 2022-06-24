@@ -1,6 +1,8 @@
-import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Conductor } from "../models/conductor";
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { Conductor } from '../models/conductor';
 
 @Injectable({
     providedIn: 'root'
@@ -8,30 +10,32 @@ import { Conductor } from "../models/conductor";
 
 export class ConductorService {
 
-    constructor(private httpclient: HttpClient){}
+  private apiUrl = `${environment.API_URL}/conductor/`;
+    constructor(private HttpClient: HttpClient){ }
 
-    public ConductorSave(conductor: Conductor){
-        return this.httpclient.post<Conductor>("http://localhost:8080/conductor/registrar",conductor);
-    }
-    public ConductorList(estado: string, page: number, size: number, order: string, asc: boolean) {
+    public conductorListar( page: number, pageSize: number): Observable<any>{
+      
+      let httpParams = new HttpParams(
+        {
+          fromObject: {
+            pageSize: pageSize, 
+            page: page
+          }
+        }
+      );
+  
+      return this.HttpClient.post<any>(this.apiUrl + 'listar',
+			httpParams.toString(),
+			{
+				headers: new HttpHeaders()
+					.set('Content-Type', 'application/x-www-form-urlencoded')
+			}
+		);
 
-        let httpParams = new HttpParams(
-          {
-            fromObject: {
-              page: page,
-              estado: estado,
-              order: order,
-              asc: asc
-            }
-          }
-        );
-    
-        return this.httpclient.post(
-          "http://localhost:8080/conductor/listar",
-          httpParams.toString(),
-          {
-            headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-          }
-        )
     }
+
+    public conductorRegistrar(conductorNuevo: Conductor): Observable<any> {
+      return this.HttpClient.post<any>(this.apiUrl + 'registrar', conductorNuevo);
+  
+    }  
 }

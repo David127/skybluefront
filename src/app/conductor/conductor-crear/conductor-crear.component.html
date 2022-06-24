@@ -39,7 +39,7 @@
                         <span class="fas fa-fw fa-user-alt fa-lg"></span>
                     </button>
                     <label class="form-control ">FORMULARIO</label>
-                    <button (click)="Guardar(modelConductor)" class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action" id="btnConductorGuardar" data-action="conductor.guardar" type="button" title="Guardar">
+                    <button  class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action"  type="button" (click)="registrar()" >
                         <i class="fa fa-fw fa-save"></i>
                     </button>
                 </div>
@@ -60,19 +60,22 @@
                                     <div class="col-lg-4">
                                         <div class="form-group input-group-sm">
                                             <label >NOMBRE:</label>
-                                            <input class="form-control" name="nombre" type="text">
+                                            <input class="form-control" name="nombre" type="text"
+                                            [(ngModel)]="conductores.nombre">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group input-group-sm">
                                             <label> APELLIDO PATERNO:</label>
-                                            <input  class="form-control" name="apellidoPaterno" type="text">
+                                            <input  class="form-control" name="apellidoPaterno" type="text"
+                                            [(ngModel)]="conductores.apellidoPaterno">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group input-group-sm">
                                             <label> APELLIDO MATERNO:</label>
-                                            <input  class="form-control" name="apellidoMaterno" type="text">
+                                            <input  class="form-control" name="apellidoMaterno" type="text"
+                                            [(ngModel)]="conductores.apellidoMaterno">
                                         </div>
                                     </div>
                                 </div>
@@ -80,19 +83,22 @@
                                     <div class="col-lg-4">
                                         <div class="form-group input-group-sm">
                                             <label>TIPO DOCUMENTO:</label>
-                                            <input  class="form-control" name="tipoDocumento" type="text">
+                                            <input  class="form-control" name="tipoDocumento" type="text"
+                                            [(ngModel)]="conductores.tipoDocumento">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group input-group-sm">
                                             <label>NRO DOCUMENTO:</label>
-                                            <input  class="form-control" name="nroDocumento" type="text">
+                                            <input  class="form-control" name="nroDocumento" type="text"
+                                            [(ngModel)]="conductores.nroDocumento">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group input-group-sm">
                                             <label>TELEFONO:</label>
-                                            <input  class="form-control" name="telefono" type="text">
+                                            <input  class="form-control" name="telefono" type="text"
+                                            [(ngModel)]="conductores.telefono">
                                         </div>
                                     </div>
                                 </div>
@@ -100,37 +106,43 @@
                                     <div class="col-lg-2">
                                         <div class="form-group input-group-sm">
                                             <label>CORREO:</label>
-                                            <input  class="form-control" name="correo" type="text">
+                                            <input  class="form-control" name="correo" type="text"
+                                            [(ngModel)]="conductores.correo">
                                         </div>
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group input-group-sm">
                                             <label>DIRECCION:</label>
-                                            <input  class="form-control" name="direccion" type="text">
+                                            <input  class="form-control" name="direccion" type="text"
+                                            [(ngModel)]="conductores.direccion">
                                         </div>
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group input-group-sm">
                                             <label>SEXO:</label>
-                                            <input  class="form-control" name="sexo" type="text">
+                                            <input  class="form-control" name="sexo" type="text"
+                                            [(ngModel)]="conductores.sexo">
                                         </div>
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group input-group-sm">
                                             <label>ESTADO CIVIL:</label>
-                                            <input class="form-control" name="estadoCivil" type="text">
+                                            <input class="form-control" name="estadoCivil" type="text"
+                                            [(ngModel)]="conductores.estadoCivil">
                                         </div>
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group input-group-sm">
                                             <label>FECHA DE NACIMIENTO:</label>
-                                            <input class="form-control" name="fechaNacimiento" type="text">
+                                            <input class="form-control" name="fechaNacimiento" type="date"
+                                            [(ngModel)]="conductores.fechaNacimiento">
                                         </div>
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group input-group-sm">
                                             <label>ESTADO:</label>
-                                            <input class="form-control" name="estado" type="text">
+                                            <input class="form-control" name="estado" type="text"
+                                            [(ngModel)]="conductores.estado">
                                         </div>
                                     </div>
                                 </div>
@@ -138,37 +150,43 @@
                                     <div class="col-lg-2">
                                         <div class="form-group input-group-sm">
                                             <label>LICENCIA:</label>
-                                            <input class="form-control" name="nroLicenciaCorrelativo" type="text">
+                                            <input class="form-control" name="nroLicenciaCorrelativo" type="text"
+                                            [(ngModel)]="conductores.nroLicenciaCorrelativo">
                                         </div>
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group input-group-sm">
                                             <label>CLASE DE CATEGORIA:</label>
-                                            <input class="form-control" name="claseCategoria" type="text">
+                                            <input class="form-control" name="claseCategoria" type="text"
+                                            [(ngModel)]="conductores.claseCategoria">
                                         </div>
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group input-group-sm">
                                             <label>ESTADO DE LICENCIA:</label>
-                                            <input class="form-control" name="estadoLicencia" type="text">
+                                            <input class="form-control" name="estadoLicencia" type="text"
+                                            [(ngModel)]="conductores.estadoLicencia">
                                         </div>
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group input-group-sm">
                                             <label>FECHA DE EXPEDICION:</label>
-                                            <input class="form-control" name="fechaExpedicion" type="text">
+                                            <input class="form-control" name="fechaExpedicion" type="date"
+                                            [(ngModel)]="conductores.fechaExpedicion">
                                         </div>
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group input-group-sm">
                                             <label>FECHA DE REVALIDACION:</label>
-                                            <input class="form-control" name="fechaRevalidacion" type="text">
+                                            <input class="form-control" name="fechaRevalidacion" type="date"
+                                            [(ngModel)]="conductores.fechaRevalidacion">
                                         </div>
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group input-group-sm">
                                             <label>RESTRICCIONES:</label>
-                                            <input class="form-control" name="restricciones" type="text">
+                                            <input class="form-control" name="restricciones" type="text"
+                                            [(ngModel)]="conductores.restricciones">
                                         </div>
                                     </div>
                                 </div>

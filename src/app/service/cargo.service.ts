@@ -1,37 +1,41 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Cargo } from '../models/cargo';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class CargoService {
 
-  constructor(private httpClient: HttpClient) { }
+	private apiUrl = `${environment.API_URL}/cargo/`;
+  constructor(private HttpClient: HttpClient) { }
 
-  public CargoSave(cargo: Cargo) {
-    return this.httpClient.post<Cargo>("http://localhost:8080/cargo/registrar", cargo);
-  }
-
-  public CargoList(estado: string, page: number, size: number, order: string, asc: boolean) {
+	public cargoListar( page: number, pageSize: number): Observable<any> {
 
     let httpParams = new HttpParams(
-      {
-        fromObject: {
-          page: page,
-          estado: estado,
-          order: order,
-          asc: asc
-        }
-      }
-    );
+			{
+				fromObject: {
+					pageSize: pageSize, 
+					page: page
+				}
+			}
+		);
 
-    return this.httpClient.post(
-      "http://localhost:8080/cargo/listar",
-      httpParams.toString(),
-      {
-        headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-      }
-    )
-  }
+		return this.HttpClient.post<any>(this.apiUrl + 'listar',
+			httpParams.toString(),
+			{
+				headers: new HttpHeaders()
+					.set('Content-Type', 'application/x-www-form-urlencoded')
+			}
+		);
+
+	}
+	public cargoRegistrar(cargoNuevo: Cargo): Observable<any> {
+		return this.HttpClient.post<any>(this.apiUrl + 'registrar', cargoNuevo);
+
+	}
+
 }
