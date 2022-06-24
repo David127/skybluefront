@@ -53,8 +53,7 @@ export class TrabajadorListarComponent implements OnInit {
       });
 
   }
-
-
+  
   rewind(): void {
     if (!this.isFirst) {
       this.page--;
