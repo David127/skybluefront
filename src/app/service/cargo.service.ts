@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-
+import { Cargo } from '../models/cargo';
 
 @Injectable({
   providedIn: 'root'
@@ -33,4 +33,9 @@ export class CargoService {
 		);
 
 	}
+	public cargoRegistrar(cargoNuevo: Cargo): Observable<any> {
+		return this.HttpClient.post<any>(this.apiUrl + 'registrar', cargoNuevo);
+
+	}
+
 }

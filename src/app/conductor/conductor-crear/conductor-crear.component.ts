@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Conductor } from 'src/app/models/conductor';
 import { ConductorService } from 'src/app/service/conductor.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-conductor-crear',
@@ -8,8 +10,16 @@ import { ConductorService } from 'src/app/service/conductor.service';
   styleUrls: ['./conductor-crear.component.css']
 })
 export class ConductorCrearComponent implements OnInit {
+  user = new TokenService;
+  isLogged: boolean = false;
+  authorities: string[] = [];
+  usuario: string = this.user.getUsername();
+  errMsj: string;
+  fecha = new Date();
 
-  modelConductor: Conductor ={
+  isDisabled: boolean = true;
+  // variables para enviar a las clases
+  conductores: Conductor ={
     id: 0,
     nombre: '',
     apellidoPaterno: '',
@@ -32,12 +42,30 @@ export class ConductorCrearComponent implements OnInit {
     restricciones: ''
   };
 
-  constructor(private conductorService: ConductorService) { }
+  constructor(
+    private conductorService: ConductorService,    
+    private router: Router,   
+    private tokenService: TokenService
+    ) { }
 
   ngOnInit(): void {
   }
-/*
-  Guardar(modelConductor: Conductor){
-    this.conductorService.ConductorSave(modelConductor);
-  }*/
+
+  
+ registrar() {
+  this.conductorService.conductorRegistrar(this.conductores).subscribe(
+    data => {
+        this.router.navigate(['/conductor/listar']);
+      
+    }, err => {
+      // console.log(err);
+      if (err.error === null) {
+        this.tokenService.logOut();
+        this.router.navigate(['/login'])
+      }
+      this.errMsj = err.error.mensaje || err.error.mesaje;
+    }
+  )
+}
+
 }
