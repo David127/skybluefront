@@ -36,8 +36,8 @@ export class ConductorCrearComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+/*
   Guardar(modelConductor: Conductor){
     this.conductorService.ConductorSave(modelConductor);
-  }
+  }*/
 }
