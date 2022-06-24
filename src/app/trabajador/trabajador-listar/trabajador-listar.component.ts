@@ -37,6 +37,9 @@ export class TrabajadorListarComponent implements OnInit {
     this.cargarTrabajador()
   }
 
+ /**
+  * It loads the list of workers
+  */
   cargarTrabajador() {
     this.trabajadorService.trabajadorListar(this.page, this.pageSize).forEach(
       (data: any) => {
@@ -53,13 +56,19 @@ export class TrabajadorListarComponent implements OnInit {
       });
 
   }
-  
+
+/**
+ * If the current page is not the first page, then decrement the page number and reload the data
+ */
   rewind(): void {
     if (!this.isFirst) {
       this.page--;
       this.cargarTrabajador();
     }
   }
+/**
+ * It increments the page number and calls the cargarTrabajador() function.
+ */
   forward(): void {
     if (!this.isLast) {
       this.page++;
