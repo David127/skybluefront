@@ -1,4 +1,5 @@
 import { Cargo } from "./cargo";
+import { Sueldo } from "./sueldo";
 import { Ubigeo } from "./ubigeo";
 
 export class Trabajador {
@@ -20,5 +21,6 @@ export class Trabajador {
     estado?: string;
     cargo?:Cargo;
     ubigeo?:Ubigeo;
+    sueldos?:Sueldo;
     
 }
