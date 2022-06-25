@@ -5,17 +5,17 @@ import { environment } from 'src/environments/environment';
 import { Trabajador } from '../models/trabajador';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class TrabajadorService {
 	private apiUrl = `${environment.API_URL}/trabajador/`;
-  constructor(private HttpClient: HttpClient) { }
+	constructor(private HttpClient: HttpClient) { }
 
-	public trabajadorListar( page: number, pageSize: number): Observable<any> {
+	public trabajadorListar(page: number, pageSize: number): Observable<any> {
 		let httpParams = new HttpParams(
 			{
 				fromObject: {
-					pageSize: pageSize, 
+					pageSize: pageSize,
 					page: page
 				}
 			}
@@ -31,8 +31,16 @@ export class TrabajadorService {
 
 	}
 
-  public trabajadorRegistrar(trabajadorNuevo: Trabajador): Observable<any> {
+	public trabajadorRegistrar(trabajadorNuevo: Trabajador): Observable<any> {
 		return this.HttpClient.post<any>(this.apiUrl + 'registrar', trabajadorNuevo);
 
 	}
+
+	public trabajadorActualizar(trabajadorNuevo: Trabajador): Observable<any> {
+		return this.HttpClient.put<any>(this.apiUrl + 'actualizar', trabajadorNuevo);
+
+	}
+
+
+	
 }

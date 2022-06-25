@@ -9,7 +9,6 @@ export class SkybGuardsService implements CanActivate{
   realRol :string;
   constructor( private tokenService: TokenService,private router: Router,) { }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    // console.log(route.data)
   const  expectedRol = route.data['expectedRol'];
     const roles = this.tokenService.getAuthorities();
     this.realRol = 'user';
