@@ -28,6 +28,7 @@ import { PropietarioActualizarComponent } from './propietario/propietario-actual
 import { interceptorProvider } from './interceptor/login.interceptor';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,8 @@ import { interceptorProvider } from './interceptor/login.interceptor';
     CargoListarComponent,
     PropietarioListarComponent,
     PropietarioCrearComponent,
-    PropietarioActualizarComponent
+    PropietarioActualizarComponent,
+    
   ],
   imports: [
     AppRoutingModule,
