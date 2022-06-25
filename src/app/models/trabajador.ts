@@ -21,6 +21,6 @@ export class Trabajador {
     estado?: string;
     cargo?:Cargo;
     ubigeo?:Ubigeo;
-    sueldos?:Sueldo;
+    sueldos?:Sueldo[];
     
 }

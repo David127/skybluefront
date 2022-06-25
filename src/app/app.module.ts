@@ -26,6 +26,8 @@ import { PropietarioListarComponent } from './propietario/propietario-listar/pro
 import { PropietarioCrearComponent } from './propietario/propietario-crear/propietario-crear.component';
 import { PropietarioActualizarComponent } from './propietario/propietario-actualizar/propietario-actualizar.component';
 import { interceptorProvider } from './interceptor/login.interceptor';
+import { ToastrModule } from 'ngx-toastr';
+import { TrabajadorActualizarComponent } from './trabajador/trabajador-actualizar/trabajador-actualizar.component';
 
 
 
@@ -34,6 +36,7 @@ import { interceptorProvider } from './interceptor/login.interceptor';
     AppComponent,
     TrabajadorListarComponent,
     TrabajadorCrearComponent,
+    TrabajadorActualizarComponent,
     VehiculoCrearComponent,
     VehiculoListarComponent,
     ConductorCrearComponent,
@@ -59,7 +62,8 @@ import { interceptorProvider } from './interceptor/login.interceptor';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    ToastrModule.forRoot()
   ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent]
