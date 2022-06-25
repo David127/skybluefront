@@ -1,5 +1,5 @@
 <app-menu></app-menu>
-<div class="container mb-2 p-1 " style="border-radius: 5px; margin-top: 52px;" >
+<div class="container mb-2 p-1 " style="border-radius: 5px; margin-top: 52px;">
 	<div class="card ">
 		<div class="car-body ">
 			<div class="input-group input-group-sm ">
@@ -11,16 +11,18 @@
 					<!-- <span class="d-none d-sm-inline">
 						CONTROL /
 					</span> -->
-					<span class="" id="lblTitulo">	TRABADORES</span>
+					<span class="" id="lblTitulo"> TRABADORES</span>
 					<!-- <span style="float:right;line-height:20px;">
 						<span  class="fa fa-fw fa-globe hidden-xs "></span>
 					</span> -->
 				</label>
 				<div class="btn-group btn-group-sm">
-					<button *ngIf="isAdmin" class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action" routerLink="/trabajador" title="Nuevo">
+					<button *ngIf="isAdmin" class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action"
+						routerLink="/trabajador" title="Nuevo">
 						<span class="fa fa-fw fa-file"></span>
 					</button>
-					<button   class="btn btn-outline-primary  border-secondary ml-1 text-dark btn-action" data-action="buscar"  title="Buscar">
+					<button class="btn btn-outline-primary  border-secondary ml-1 text-dark btn-action"
+						data-action="buscar" title="Buscar">
 						<span class="fa fa-fw fa-search"></span>
 					</button>
 				</div>
@@ -31,7 +33,7 @@
 <!-- trabajador BUSCAR -->
 
 <span class="Panel" id="trabajadorDesktop">
-	<div class="container-sm p-1" >
+	<div class="container-sm p-1">
 		<div class="card">
 			<div class="card-header p-1">
 				<div class="input-group input-group-sm">
@@ -45,12 +47,13 @@
 						<option value="inactivo" >Inactivo</option>
 						<option value="Inactivo" >Suspendido</option>
 					</select> -->
-					<button  class="btn btn-outline-warning border-secondary ml-1 text-dark btn-action"   type="button" title="Filtro">
-						<i class="fa fa-fw fa-tasks"></i>
+					<button class="btn btn-outline-warning border-secondary ml-1 text-dark btn-action" type="button"
+						title="Nuevo" (click)="Nuevo()">
+						<i class="fa fa-fw fa-file"></i>
 					</button>
 				</div>
 			</div>
-			
+
 			<div class="card-body p-2 overflow-auto" style="height: 75vh;">
 				<table class="table table-responsive">
 					<thead>
@@ -67,14 +70,15 @@
 					<tbody>
 						<tr *ngFor=" let t of trabajadores, let indice=index" class="text-center">
 							<!-- <th scope="row">{{indice+1}}</th> -->
-							<td>{{ t.nombre }}</td>	
-							<td>{{ t.apellidoPaterno }}  {{ t.apellidoMaterno }}</td>
+							<td>{{ t.nombre }}</td>
+							<td>{{ t.apellidoPaterno }} {{ t.apellidoMaterno }}</td>
 							<td> {{ t.tipoDocumento }} 46546v</td>
 							<td>{{ t.direccion }}</td>
 							<td>{{ t.cargo.nombre }}</td>
 							<td>{{t.estado}}</td>
 							<td>
-								<button  [name]="t" style="width: 60px" class="btn btn-primary btn-sm"> <i class="fa-solid fa-pencil"></i></button>
+								<button (click)="buscarTrabajador(t)" [name]="t" style="width: 60px"
+									class="btn btn-warning btn-sm"> <i class="fa fa-fw fa-pencil-alt"></i></button>
 							</td>
 						</tr>
 					</tbody>
@@ -83,10 +87,10 @@
 			<div class="card-footer ">
 				<form action="javascript:void();">
 					<div class="input-group input-group-sm mt-2">
-						<button class="btn btn-outline border" (click)="rewind()" type="button" >
+						<button class="btn btn-outline border" (click)="rewind()" type="button">
 							<i class="fas fa-fw fa-angle-double-left"></i>
 						</button>
-							<label class="form-control"></label>
+						<label class="form-control"></label>
 						<button class="btn btn-outline border" (click)="forward()" type="button">
 							<i class="fas fa-fw fa-angle-double-right"></i>
 						</button>
@@ -96,5 +100,3 @@
 		</div>
 	</div>
 </span>
-
-

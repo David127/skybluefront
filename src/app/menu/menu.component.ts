@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenService } from '../service/token.service';
+import { LoaderService } from '../utils/loader.service';
 
 @Component({
   selector: 'app-menu',
@@ -11,7 +12,9 @@ export class MenuComponent implements OnInit {
   nombreUsuario = '';
   nombreRol = '';
 
-  constructor(private tokenService: TokenService) { }
+  constructor(
+    private tokenService: TokenService,
+    public loaderService: LoaderService) { }
 
   ngOnInit(): void {
     if (this.tokenService.getToken()) {
