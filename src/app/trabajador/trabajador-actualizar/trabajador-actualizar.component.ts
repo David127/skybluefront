@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cargo } from 'src/app/models/cargo';
+import { Sueldo } from 'src/app/models/sueldo';
 import { Trabajador } from 'src/app/models/trabajador';
 import { Ubigeo } from 'src/app/models/ubigeo';
 import { CargoService } from 'src/app/service/cargo.service';
@@ -20,10 +21,16 @@ export class TrabajadorActualizarComponent implements OnInit {
   departamentos: string[] = [];
   provincias: string[] = [];
   distritos: Ubigeo[] = [];
+  sueldo: Sueldo = {}
   //
+  sueldos: Sueldo[];
   trabajadores: Trabajador = {
-
+    ubigeo: {
+      id: 1
+    }
   }
+  objTrabajador = this.trabajadores;
+
   constructor(
     private trabajadorService: TrabajadorService,
     private noficacionService: NotificationService,
@@ -45,6 +52,7 @@ export class TrabajadorActualizarComponent implements OnInit {
     this.cargarCargo();
     this.cargaProvincia();
     this.cargaDistrito();
+    this.ListarSueldos();
   }
 
   /**
@@ -55,10 +63,12 @@ export class TrabajadorActualizarComponent implements OnInit {
     let trabajador = localStorage.getItem('trabajador');
     this.trabajadores = JSON.parse(trabajador)
   }
-/**
- * It updates the data of the employee.
- */
+  /**
+   * It updates the data of the employee.
+   */
   Actualizar() {
+    console.log(this.trabajadores.sueldos)
+    console.log(this.sueldos)
     this.trabajadorService.trabajadorActualizar(this.trabajadores).forEach(
       data => {
         this.noficacionService.showSuccess(data.data.message, "success")
@@ -88,9 +98,14 @@ export class TrabajadorActualizarComponent implements OnInit {
    * It loads the districts of the selected province.
    */
   cargaDistrito() {
-    this.ubigeoService.listaDistritos(this.trabajadores.ubigeo?.departamento, this.trabajadores.ubigeo?.provincia).subscribe(
-      response => this.distritos = response
-    );
+    if (this.trabajadores.ubigeo?.departamento == "" || this.trabajadores.ubigeo?.provincia == "") {
+      this.distritos = [];
+    } else {
+      this.ubigeoService.listaDistritos(this.trabajadores.ubigeo?.departamento, this.trabajadores.ubigeo?.provincia).subscribe(
+        response => this.distritos = response
+      );
+    }
+    this.trabajadores!.ubigeo!.id = -1;
   }
   cargarCargo() {
     var page = 1;
@@ -107,5 +122,24 @@ export class TrabajadorActualizarComponent implements OnInit {
 
     });
   }
+  ListarSueldos() {
+    let trabajador = JSON.parse(localStorage.getItem('trabajador'));
+    this.sueldos = trabajador.sueldos;
+  }
+
+  cargarSueldo(s) {
+    this.sueldo = s;
+  }
+  sueldoActualizar(sueldo) {
+    this.objTrabajador =  this.trabajadores.sueldos.find(s => s.id === sueldo.id)
+   
+    console.log(this.objTrabajador)
+
+
+    //this.trabajadores.sueldos.find(s => sueldo.id)
+   // console.log(this.trabajadores.sueldos)
+  }
+
+
 
 }

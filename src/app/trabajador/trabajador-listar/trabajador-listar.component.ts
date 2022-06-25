@@ -34,7 +34,7 @@ export class TrabajadorListarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.cargarTrabajador()
+    this.ListarTrabajador()
   }
   Nuevo(){
     this.router.navigate(['trabajador/crear'])
@@ -43,7 +43,7 @@ export class TrabajadorListarComponent implements OnInit {
   /**
    * It loads the list of workers
    */
-  cargarTrabajador() {
+  ListarTrabajador() {
     this.trabajadorService.trabajadorListar(this.page, this.pageSize).forEach(
       (data: any) => {
         this.trabajadores = data.data;
@@ -76,16 +76,16 @@ export class TrabajadorListarComponent implements OnInit {
   rewind(): void {
     if (!this.isFirst) {
       this.page--;
-      this.cargarTrabajador();
+      this.ListarTrabajador();
     }
   }
   /**
-   * It increments the page number and calls the cargarTrabajador() function.
+   * It increments the page number and calls the ListarTrabajador() function.
    */
   forward(): void {
     if (!this.isLast) {
       this.page++;
-      this.cargarTrabajador();
+      this.ListarTrabajador();
     }
   }
 

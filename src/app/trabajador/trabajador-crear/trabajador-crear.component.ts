@@ -75,7 +75,6 @@ export class TrabajadorCrearComponent implements OnInit {
 
       })
       .catch(err => {
-        // console.log(err);
         if (err.status === 401) {
           this.tokenService.logOut();
           this.router.navigate(['/login'])
