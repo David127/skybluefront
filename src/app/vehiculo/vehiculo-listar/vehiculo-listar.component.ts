@@ -60,6 +60,10 @@ export class VehiculoListarComponent implements OnInit {
     this.cargarVehiculo()
   }
 
+  Nuevo(){
+    this.router.navigate(['vehiculo/crear'])
+  }
+
   cargarVehiculo() {
     this.vehiculoService.vehiculoListar(this.page, this.pageSize).forEach(
       (data: any) => {
@@ -75,6 +79,12 @@ export class VehiculoListarComponent implements OnInit {
         }
       });
 
+  }
+
+
+  buscarVehiculo(v: Vehiculo) {
+    localStorage.setItem("vehiculo", JSON.stringify(v));
+    this.router.navigate(["/vehiculo/actualizar"]);
   }
 
   rewind(): void {

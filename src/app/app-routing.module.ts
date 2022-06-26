@@ -60,7 +60,7 @@ const routes: Routes = [
     title: 'Vehiculo'
   },
   {
-    path: 'vehiculo/-actualizar',
+    path: 'vehiculo/actualizar',
     component: VehiculoActualizarComponent,
     title: 'Vehiculo'
   },
