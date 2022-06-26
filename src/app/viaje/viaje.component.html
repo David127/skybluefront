@@ -1,1 +1,231 @@
-<p>viaje works!</p>
+<app-menu></app-menu>
+<div class="container">
+    <div class="container mb-2 p-1 " style="border-radius: 5px; margin-top: 52px;">
+        <div class="card ">
+            <div class="car-body ">
+                <div class="input-group input-group-sm ">
+                    <button class="btn  mr-1 " type="button">
+                        <i class="fas fa-fw fa-list"></i>
+                    </button>
+                    <label class="form-control ">
+                        <a href="javascript:void(0);"><i class="fa fa-fw fa-home"></i> </a>
+                        <span class="d-none d-sm-inline">
+                            CONTROL /
+                        </span>
+                        <span class="" id="lblTitulo">BUSES</span>
+                        <span style="float:right;line-height:20px;">
+                            <span class="fa fa-fw fa-globe hidden-xs "></span>
+                        </span>
+                    </label>
+                    <div class="btn-group btn-group-sm">
+                        <button class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action"
+                            data-action="nuevo" id="btnNuevoUsuario" title="Nuevo">
+                            <span class="fa fa-fw fa-file"></span>
+                        </button>
+                        <button class="btn btn-outline-primary  border-secondary ml-1 text-dark btn-action"
+                            data-action="buscar" id="btnDocBuscar" title="Buscar">
+                            <span class="fa fa-fw fa-search"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VEHICULO BUSCAR -->
+    <span class="nsPanel" id="cardUsuarioBuscar" style="display: none;">
+        <div class="container p-1">
+            <div class="card">
+                <div class="card-header p-1">
+                    <div class="input-group input-group-sm">
+                        <button class="btn btn-outline-secondary border-white mr-1 " type="button" title="" disabled>
+                            <span class="fas fa-fw fa-user-alt fa-lg"></span>
+                        </button>
+                        <label class="form-control text-truncate">BUSCAR</label>
+                        <button class="btn btn-outline-warning border-secondary ml-1 text-dark btn-action"
+                            id="btnUsuarioBuscarFiltro" data-action="buscar.filtro" type="button" title="Filtro">
+                            <i class="fa fa-fw fa-tasks"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body p-2" style="height: 75vh;">
+                    <!-- DIBUJAR LISTA  -->
+                </div>
+                <div class="card-footer ">
+                    <form action="javascript:void();">
+                        <div class="input-group input-group-sm mt-2">
+                            <button class="btn btn-outline-light border" type="button">
+                                <i class="fas fa-fw fa-angle-double-left"></i>
+                            </button>
+                            <label class="form-control"></label>
+                            <button class="btn btn-outline-light border" type="button">
+                                <i class="fas fa-fw fa-angle-double-right"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </span>
+
+    <span>
+        <div class="row row-cols-1">
+            <!-- PANEL IZQUIERDO -->
+            <div class="col-sm-8 pl-0 pr-0">
+                <div class="card">
+                    <div class="card-header p-1">
+                        <div class="input-group input-group-sm">
+                            <button class="btn btn-outline-secondary " type="button" disabled="">
+                                <i class="fa fa-fw fa-file-alt"></i>
+                            </button>
+                            <span class="form-control text-truncate ml-1" id=""></span>
+                        </div>
+                    </div>
+                    <div class="card-body p-2">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="input-group input-group-sm mb-2">
+                                    <span class="input-group-text">FECHA</span>
+                                    <input id="txtFecha" class="form-control" type="date">
+                                </div>
+
+                                <div class="input-group input-group-sm ">
+                                    <span class="input-group-text">RUTA</span>
+                                    <select id="cboRutaNombre" class="form-select">
+                                        <option value="1">IO-66</option>
+                                        <option value="2">3601</option>
+                                    </select>
+                                    <select id="cboDireccion" class="form-select">
+                                        <option value="1">A</option>
+                                        <option value="2">B</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- reloj -->
+                            <div class="col-4">
+                                <div id="txt"></div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="input-group input-group-sm mt-1">
+                                    <span class="input-group-text">Padron</span>
+                                    <select class="form-select" id="cboVehiculo">
+                                        <option> Seleccione</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="input-group input-group-sm mt-1">
+                                    <span class="input-group-text">H. salida</span>
+                                    <input class="form-control " id="txtHoraSalida" type="time">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="input-group input-group-sm mt-1">
+                                    <span class="input-group-text">Placa</span>
+                                    <input class="form-control" id="txtVehiculoPlaca" type="text" placeholder="BBK-133">
+                                    <input class="input-group-text" id="txtVehiculoMarca" type="text"
+                                        placeholder="Mercedes" readonly="readonly">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="input-group input-group-sm mt-1">
+                                    <span class="input-group-text" for="txtConductor">Conductor</span>
+                                    <input class="form-control" id="txtConductor" type="text" placeholder="nombre">
+                                    <!-- <button class="btn btn-outline-secondary btn-action" id="btnDespachoBuscarConductor" data-action="conductor.filtro" title="buscar" data-toggle="modal"> 
+											<i class="fa fa-fw fa-search"></i> 
+										</button> -->
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-lg-1">
+                                <div class="input-group-sm text-center ">
+                                    <button class="btn btn-danger mt-1 " style="border-radius: 25px;" type="button"><i
+                                            class="far fa-fw fa-circle"></i></button>
+                                    <button class="btn btn-warning mt-1" style="border-radius: 25px;" type="button"><i
+                                            class="far fa-fw fa-circle"></i> </button>
+                                    <button class="btn btn-success mt-1" style="border-radius: 25px;" type="button"><i
+                                            class="far fa-fw fa-circle"></i></button>
+                                </div>
+                            </div>
+                            <div class="col-lg-8 ">
+                                <div class="input-group-sm ">
+                                    <input class="form-control mt-1" type="text" placeholder="Frecuencia constante"
+                                        disabled>
+                                    <input class="form-control mt-1" type="text" placeholder="Estado de trasbordo"
+                                        disabled>
+                                    <input class="form-control mt-1" type="text" placeholder="Estado de salida"
+                                        disabled>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-2 text-center ">
+                                <button id="btnIngresarViaje" class="btn btn-outline-secondary mt-4 " type="button">
+                                    <i class="fas fa-fw fa-bus"></i> ingresar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-footer p-1">
+                        <div class="input-group input-group-sm">
+                            <span class="form-control" id="" type="text"></span>
+                            <button class="btn btn-outline-secondary" id="btnIzqMaxMin" type="button">
+                                <i class="fa fa-fw fa-chevron-right" id="btnIzqMaxMinIcon"></i>
+                            </button>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- PANEL DERECHO -->
+            <div class="col-sm-4 pl-0 pr-0">
+                <div class="card">
+                    <div class="card-header p-1">
+                        <div class="input-group input-group-sm">
+                            <button class="btn btn-outline-secondary border-white mr-1 " type="button" title=""
+                                disabled="">
+                                <span class="fas fa-fw fa-file-invoice fa-lg"></span>
+                            </button>
+                            <label class="form-control text-truncate">BUSES DESPACHADOS</label>
+                            <button
+                                class="btn btn-sm btn-outline-secondary border-white ml-1 removecaret dropdown-toggle dropdown-toggle-split"
+                                id="btnDocDocumentoMenu" disabled="" type="button" data-toggle="dropdown"
+                                data-submenu="" tabindex="0" role="button" aria-haspopup="true" aria-expanded="true">
+                                <span class="fa fa-fw fa-ellipsis-v"></span>
+                            </button>
+                        </div>
+
+                    </div>
+                    <div class="card-body p-2">
+                        <div class="overflow-auto" style="height: 344px;" id="contenedorListaSalida"></div>
+                    </div>
+                    <div class="card-footer p-1">
+                        <div class="input-group input-group-sm ">
+                            <span class="input-group-text"> Buscar Unidad :</span>
+                            <input class="form-control" type="text">
+                            <button class="btn btn-secondary center">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </span>
+
+
+
+</div>
