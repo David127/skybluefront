@@ -1,12 +1,12 @@
+import { Ruta } from "./ruta";
+
 export class Vehiculo {
     id: number = 0;
     placa: String;
     padron: String;
-    clase: number;
+    clase: String;
     modelo: String;
-    propietario: String;
     tarjeta_propiedad: String;
-    ruta: String;
     anioFabricacion: String;
     nroMotor: String;
     pesoNeto: number;
@@ -14,17 +14,17 @@ export class Vehiculo {
     marca: String;
     nroAsientos: number;
     nroPasajeros: number;
-    tipoCombustible: String;
+    tipoCombustible: number;
     carroceria: String;
     color: String;
     numeroSerieMotor: String;
     numeroCilindros: number;
     numeroRuedas: number;
-    logitud: number;
+    longitud: number;
     altura: number;
     ancho: number;
     cargaUtil: number;
     nroEjes: number;
-    kilomentraje: String;
-    estado: String
+    kilomentraje: number
+    ruta: Ruta
 }
