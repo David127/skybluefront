@@ -90,74 +90,36 @@
 									</div>                                    
 								</div>
 
-								<hr>
-                                <div class="col-lg-4">
-                                    <label for="">CARGO</label>
-                                    <div class="input-group input-group-sm">
-
-                                        <select [(ngModel)]="empresas.ruta.id" id="cargo" name="cargo"
-                                            class="form-control">
-                                            <option value="0" selected> [Seleccione] </option>
-                                            <option *ngFor="let r of  rutas" value="{{ r.id}}">
-                                                {{ r.clase }}
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-lg-2">
-                                    <label for="">DEPARTAMENTO</label>
-                                    <div class="input-group input-group-sm">
-                                        <!-- <select class="form-select" id="trabCodDepartamento" name="trabCodDepartamento" [(ngModel)]="trabajadores.trabCodDepartamento" [disabled]="isDisabled"></select> -->
-                                        <select [(ngModel)]="empresas.ubigeo!.departamento"
-                                            (change)="cargaProvincia()" id="departamento" name="departamento"
-                                            class="form-control">
-                                            <option value="-1"> [Seleccione] </option>
-                                            <option *ngFor="let aux of departamentos" value="{{ aux }}">
-                                                {{ aux }}
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2">
-                                    <label for="">PROVINCIA</label>
-                                    <div class="input-group input-group-sm">
-                                        <!-- <select class="form-select" id="trabCodProvincia" name="trabCodProvincia" [(ngModel)]="trabajadores.trabCodProvincia" [disabled]="isDisabled"></select> -->
-                                        <select [(ngModel)]="empresas.ubigeo!.provincia"
-                                            (change)="cargaDistrito()" id="provincia" name="provincia"
-                                            class="form-control">
-                                            <option value="-1"> [Seleccione] </option>
-                                            <option *ngFor="let aux of provincias" value="{{ aux }}">
-                                                {{ aux }}
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2">
-                                    <label for="">DISTRITO</label>
-                                    <div class="input-group input-group-sm">
-                                        <!-- <select class="form-select" id="trabCodDistrito" name="trabCodDistrito" [(ngModel)]="trabajadores.trabCodDistrito" [disabled]="isDisabled"></select> -->
-
-                                        <select [(ngModel)]="empresas.ubigeo!.id" id="distrito" name="distrito"
-                                            class="form-control">
-                                            <option value="0"> [Seleccione] </option>
-                                            <option *ngFor="let aux of  distritos" value="{{ aux.id }}">
-                                                {{ aux.distrito }}
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-
-
+								
 								<div class="row mt-2">
-									<div class="col-lg-6">
+									<div class="col-lg-3">
+											<label for="">CARGO</label>
+											<div class="input-group input-group-sm">
+
+													<select [(ngModel)]="empresas.ruta.id" id="cargo" name="cargo"
+															class="form-control">
+															<option value="0" selected> [Seleccione] </option>
+															<option *ngFor="let r of  rutas" value="{{ r.id}}">
+																	{{ r.clase }}
+															</option>
+													</select>
+											</div>
+									</div>
+									
+									
+								</div>
+								
+								<h6 class="mt-3">DATOS DE CONTÁCTO</h6>
+								<hr>
+								<div class="row">
+									<div class="col-lg-3">
 										<label for="">EMAIL</label>
 										<div class="input-group input-group-sm">
 											<input class="form-control" type="text" id="correo" name="correo"
 												[(ngModel)]="empresas.correo" placeholder="EMAIL">
 										</div>
 									</div>
-									<div class="col-lg-6">
+									<div class="col-lg-3">
 										<label for="">TELEFONO</label>
 										<div class="input-group input-group-sm">
 											<input class="form-control" type="text" id="telefono" name="telefono"
@@ -166,8 +128,52 @@
 									</div>
 								</div>
 
-                                <hr>
+								<h6 class="mt-3">DATOS DE UBICACIÓN</h6>
+								<hr>
+								<div class="row">
+									<div class="col-lg-2">
+										<label for="">DEPARTAMENTO</label>
+										<div class="input-group input-group-sm">
+												<!-- <select class="form-select" id="trabCodDepartamento" name="trabCodDepartamento" [(ngModel)]="trabajadores.trabCodDepartamento" [disabled]="isDisabled"></select> -->
+												<select [(ngModel)]="empresas.ubigeo!.departamento"
+														(change)="cargaProvincia()" id="departamento" name="departamento"
+														class="form-control">
+														<option value="-1"> [Seleccione] </option>
+														<option *ngFor="let aux of departamentos" value="{{ aux }}">
+																{{ aux }}
+														</option>
+												</select>
+										</div>
+									</div>
+									<div class="col-lg-2">
+											<label for="">PROVINCIA</label>
+											<div class="input-group input-group-sm">
+													<!-- <select class="form-select" id="trabCodProvincia" name="trabCodProvincia" [(ngModel)]="trabajadores.trabCodProvincia" [disabled]="isDisabled"></select> -->
+													<select [(ngModel)]="empresas.ubigeo!.provincia"
+															(change)="cargaDistrito()" id="provincia" name="provincia"
+															class="form-control">
+															<option value="-1"> [Seleccione] </option>
+															<option *ngFor="let aux of provincias" value="{{ aux }}">
+																	{{ aux }}
+															</option>
+													</select>
+											</div>
+									</div>
+									<div class="col-lg-2">
+											<label for="">DISTRITO</label>
+											<div class="input-group input-group-sm">
+													<!-- <select class="form-select" id="trabCodDistrito" name="trabCodDistrito" [(ngModel)]="trabajadores.trabCodDistrito" [disabled]="isDisabled"></select> -->
 
+													<select [(ngModel)]="empresas.ubigeo!.id" id="distrito" name="distrito"
+															class="form-control">
+															<option value="0"> [Seleccione] </option>
+															<option *ngFor="let aux of  distritos" value="{{ aux.id }}">
+																	{{ aux.distrito }}
+															</option>
+													</select>
+											</div>
+									</div>
+								</div>
                                 
 							</div>
 						</form>
