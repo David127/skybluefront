@@ -1,1 +1,104 @@
-<p>cargo-actualizar works!</p>
+<app-menu></app-menu>
+<div class="container mb-2 p-1 " style="border-radius: 5px; margin-top: 52px;">
+    <!-- ENCABEZADO DE PAGINA -->
+    <div class="card ">
+        <div class="car-body ">
+            <div class="input-group input-group-sm ">
+                <button class="btn  mr-1 " type="button">
+                    <i class="fas fa-fw fa-list"></i>
+                </button>
+                <label class="form-control ">
+                    <a href="javascript:void(0);"><i class="fa fa-fw fa-home"></i> </a>
+                    <span class="d-none d-sm-inline">
+                        CONTROL /
+                    </span>
+
+                    <span class="" id="lblTitulo">CARGOS</span>
+                    <span style="float:right;line-height:20px;">
+                        <span class="fa fa-fw fa-globe hidden-xs "></span>
+                    </span>
+                </label>
+                <div class="btn-group btn-group-sm">
+                    <!-- <button class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action"  title="Nuevo" (click)="Nuevo()">
+						<span class="fa fa-fw fa-file" ></span>
+					</button> -->
+                    <button class="btn btn-outline-primary  border-secondary ml-1 text-dark btn-action"
+                        routerLink="/cargo/listar" title="Buscar">
+                        <span class="fa fa-fw fa-search"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- CARGO FORMULARIO -->
+<span class="nsPanel" id="cardVehiculosForm">
+	<div class="container-sm p-1">
+		<div class="card">
+            <div class="card-header p-1">
+                <div class="input-group input-group-sm">
+                    <button class="btn btn-outline-secondary border-white" type="button" title="">
+                        <span class="fas fa-fw fa-user-alt fa-lg"></span>
+                    </button>
+                    <label class="form-control ">FORMULARIO</label>
+                    <button class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action" type="button"
+                        (click)="Actualizar()">
+                        <i class="fa fa-fw fa-save"></i>
+                    </button>
+                </div>
+            </div>
+
+			<div class="card-body p-2" style="height: 75vh;">
+				<div class="" style="overflow-y: auto;">
+					<div class="" id="divUsuarioFormContenido">
+
+                        <form id="frmCargo" class="form " style="height: 80vh;">
+							<div class="container">
+								<!-- Datos Cargo -->
+
+								<hr class=" dropdown-divider">
+								<div class="row mt-2 d-flex justify-content-center">
+									<div class="col">
+										<div class="form-group input-group-sm">
+											<label> NOMBRE:</label>
+											<input [(ngModel)]="cargos.nombre" class="form-control" name="nombre"
+												type="text" placeholder="Nombre">
+										</div>
+									</div>
+									<div class="col">
+										<div class="form-group input-group-sm">
+											<label> DESCRIPCION:</label>
+											<input [(ngModel)]="cargos.descripcion" class="form-control"
+												name="descripcion" type="text" placeholder="Descripcion">
+										</div>
+									</div>
+									<div class="col">
+										<div class="form-group input-group-sm">
+											<label> RESPONSABLE:</label>
+											<input [(ngModel)]="cargos.responsable" class="form-control"
+												name="responsable" type="text" placeholder="Responsable">
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+			<div class="card-footer ">
+				<form action="javascript:void();">
+					<div class="input-group input-group-sm mt-2">
+						<button class="btn btn-outline-light border" type="button">
+							<i class="fas fa-fw fa-angle-double-left"></i>
+						</button>
+						<label class="form-control"></label>
+						<button class="btn btn-outline-light border" type="button">
+							<i class="fas fa-fw fa-angle-double-right"></i>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</span>

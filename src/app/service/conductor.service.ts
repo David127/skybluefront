@@ -38,4 +38,8 @@ export class ConductorService {
       return this.HttpClient.post<any>(this.apiUrl + 'registrar', conductorNuevo);
   
     }  
+    public conductorActualizar(conductorNuevo: Conductor): Observable<any> {
+      return this.HttpClient.post<any>(this.apiUrl + 'actualizar', conductorNuevo);
+  
+    }  
 }
