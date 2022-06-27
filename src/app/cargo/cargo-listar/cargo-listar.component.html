@@ -17,10 +17,12 @@
 					</span> -->
 				</label>
 				<div class="btn-group btn-group-sm">
-					<button *ngIf="isAdmin" class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action" routerLink="/trabajador" title="Nuevo">
+					<button *ngIf="isAdmin" class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action"
+						routerLink="/cargo" title="Nuevo">
 						<span class="fa fa-fw fa-file"></span>
 					</button>
-					<button   class="btn btn-outline-primary  border-secondary ml-1 text-dark btn-action" data-action="buscar"  title="Buscar">
+					<button class="btn btn-outline-primary  border-secondary ml-1 text-dark btn-action"
+						data-action="buscar" title="Buscar">
 						<span class="fa fa-fw fa-search"></span>
 					</button>
 				</div>
@@ -45,8 +47,9 @@
 						<option value="inactivo" >Inactivo</option>
 						<option value="Inactivo" >Suspendido</option>
 					</select> -->
-					<button  class="btn btn-outline-warning border-secondary ml-1 text-dark btn-action"   type="button" title="Filtro">
-						<i class="fa fa-fw fa-tasks"></i>
+					<button class="btn btn-outline-warning border-secondary ml-1 text-dark btn-action" type="button"
+						title="Nuevo" (click)="Nuevo()">
+						<i class="fa fa-fw fa-file"></i>
 					</button>
 				</div>
 			</div>
@@ -66,7 +69,8 @@
 							<td>{{ c.nombre }}</td>	
 							<td>{{ c.descripcion }}</td>
 							<td>
-								<button  [name]="c" style="width: 60px" class="btn btn-primary btn-sm"> <i class="fa-solid fa-pencil"></i></button>
+								<button (click)="buscarCargo(c)" [name]="c" style="width: 60px"
+									class="btn btn-warning btn-sm"> <i class="fa fa-fw fa-pencil-alt"></i></button>
 							</td>
 						</tr>
 					</tbody>

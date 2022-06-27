@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Conductor } from 'src/app/models/conductor';
 import { ConductorService } from 'src/app/service/conductor.service';
 import { TokenService } from 'src/app/service/token.service';
+import { NotificationService } from 'src/app/utils/notification.service';
 
 @Component({
   selector: 'app-conductor-crear',
@@ -44,6 +45,7 @@ export class ConductorCrearComponent implements OnInit {
 
   constructor(
     private conductorService: ConductorService,    
+    private noficacionService: NotificationService,
     private router: Router,   
     private tokenService: TokenService
     ) { }
@@ -55,6 +57,7 @@ export class ConductorCrearComponent implements OnInit {
  registrar() {
   this.conductorService.conductorRegistrar(this.conductores).subscribe(
     data => {
+      this.noficacionService.showSuccess(data.data.message, "success")
         this.router.navigate(['/conductor/listar']);
       
     }, err => {
@@ -67,5 +70,4 @@ export class ConductorCrearComponent implements OnInit {
     }
   )
 }
-
 }

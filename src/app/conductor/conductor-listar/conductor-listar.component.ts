@@ -51,6 +51,9 @@ export class ConductorListarComponent implements OnInit {
   ngOnInit(): void {
     this.cargarConductor()
   }
+  Nuevo(){
+    this.router.navigate(['conductor/crear'])
+  }
   cargarConductor() {
     this.conductorService.conductorListar(this.page, this.pageSize).forEach(
       (data: any) => {
@@ -66,6 +69,11 @@ export class ConductorListarComponent implements OnInit {
         }
       });
 
+  }
+
+  buscarConductor(c: Conductor){
+    localStorage.setItem("conductor", JSON.stringify(c));
+    this.router.navigate(["/conductor/actualizar"]);
   }
 
   rewind(): void {

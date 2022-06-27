@@ -18,10 +18,12 @@
 					</span>
 				</label>
 				<div class="btn-group btn-group-sm">
-					<button class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action" data-action="nuevo" id="btnNuevoUsuario" title="Nuevo">
+					<button *ngIf="isAdmin" class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action"
+						routerLink="/conductor" title="Nuevo">
 						<span class="fa fa-fw fa-file"></span>
-                    </button>
-					<button class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action" data-action="buscar" id="btnDocBuscar" title="Buscar">
+					</button>
+					<button class="btn btn-outline-primary  border-secondary ml-1 text-dark btn-action"
+						data-action="buscar" title="Buscar">
 						<span class="fa fa-fw fa-search"></span>
 					</button>
 				</div>
@@ -39,8 +41,9 @@
 						<span class="fas fa-fw fa-user-alt fa-lg"></span>
 					</button>
 					<label class="form-control text-truncate">BUSCAR</label>
-					<button class="btn btn-outline-warning border-secondary ml-1 text-dark btn-action" id="btnUsuarioBuscarFiltro" data-action="buscar.filtro" type="button" title="Filtro">
-						<i class="fa fa-fw fa-tasks"></i>
+					<button class="btn btn-outline-warning border-secondary ml-1 text-dark btn-action" type="button"
+						title="Nuevo" (click)="Nuevo()">
+						<i class="fa fa-fw fa-file"></i>
 					</button>
 				</div>
 			</div>
@@ -70,7 +73,8 @@
 							<td>{{ c.sexo }}</td>
 							<td>{{c.estadoLicencia}}</td>
 							<td>
-								<button  [name]="c" style="width: 60px" class="btn btn-primary btn-sm"> <i class="fa-solid fa-pencil"></i></button>
+								<button (click)="buscarConductor(c)" [name]="c" style="width: 60px"
+									class="btn btn-warning btn-sm"> <i class="fa fa-fw fa-pencil-alt"></i></button>
 							</td>
 						</tr>
 					</tbody>
@@ -79,11 +83,11 @@
 			<div class="card-footer ">
 				<form action="javascript:void();">
 					<div class="input-group input-group-sm mt-2">
-						<button class="btn btn-outline-light border" type="button">
+						<button class="btn btn-outline border" (click)="rewind()" type="button" >
 							<i class="fas fa-fw fa-angle-double-left"></i>
 						</button>
 							<label class="form-control"></label>
-						<button class="btn btn-outline-light border" type="button">
+						<button class="btn btn-outline border" (click)="forward()" type="button">
 							<i class="fas fa-fw fa-angle-double-right"></i>
 						</button>
 					</div>
