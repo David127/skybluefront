@@ -108,6 +108,17 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-lg-2">
+                                        <label>SEXO</label>
+                                        <div class="input-group input-group-sm">
+                                            <select id="sexo" name="sexo" [(ngModel)]="trabajadores.sexo"
+                                                class="form-select">
+                                                <option value="">SELECCIONE</option>
+                                                <option value="Masculino">MASULINO</option>
+                                                <option value="Femenino">FEMENINO</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="row mt-2">
                                     <div class="col-lg-2">
@@ -130,25 +141,13 @@
                                                 class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-lg-3">
-                                        <label>SEXO</label>
-                                        <div class="input-group input-group-sm">
-                                            <select id="sexo" name="sexo" [(ngModel)]="trabajadores.sexo"
-                                                class="form-select">
-                                                <option value="">SELECCIONE</option>
-                                                <option value="Masculino">MASULINO</option>
-                                                <option value="Femenino">FEMENINO</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
                                 </div>
 
-                                <h6 class="mt-3">DATOS DE NACIEMIETO Y DOMICILIO </h6>
+                                <h6 class="mt-3">DATOS DE NACIMIENTO Y DOMICILIO </h6>
                                 <hr>
                                 <div class="row mt-2">
                                     <div class="col-lg-2">
-                                        <label for="">FECHA NACIEMETO</label>
+                                        <label for="">FECHA NACIMIENTO</label>
                                         <div class="input-group input-group-sm">
                                             <input class="form-control" id="fechaNacimiento" name="fechaNacimiento"
                                                 [(ngModel)]="trabajadores.fechaNacimiento" type="date">
