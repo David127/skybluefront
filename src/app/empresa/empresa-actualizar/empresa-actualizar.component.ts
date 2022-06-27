@@ -17,6 +17,8 @@ import { EmpresaService } from 'src/app/service/empresa.service';
 export class EmpresaActualizarComponent implements OnInit {
 
   rutas: Ruta[] = [];
+  departamentos: string[] = [];
+  provincias: string[] = [];
   distritos: Ubigeo[] = [];
   //
   empresas: Empresa = {
@@ -33,15 +35,39 @@ export class EmpresaActualizarComponent implements OnInit {
     private ubigeoService: UbigeoService,
     private tokenService: TokenService,
     private rutaService: RutaService
-  ) { }
+  ) {    
+    this.ubigeoService.listarDepartamento().forEach(
+    response => this.departamentos = response
+    ).catch((error: any) => {
+    if (error.status == "401")
+      noficacionService.showError("Sesion finalizada", "error");
+  })
+}
 
   ngOnInit(): void {
     this.Editar();
     this.cargarRuta();
-    this.cargarDistrito();
+    this.cargaProvincia();
+    this.cargaDistrito();
   }
-  cargarDistrito() {
-          
+
+  cargaProvincia() {
+    this.ubigeoService.listaProvincias(this.empresas.ubigeo?.departamento).forEach(
+      response => this.provincias = response
+    ).catch((error: any) => {
+      console.error(error)
+    })
+  }
+
+  cargaDistrito() {
+    if (this.empresas.ubigeo?.departamento == "" || this.empresas.ubigeo?.provincia == "") {
+      this.distritos = [];
+    } else {
+      this.ubigeoService.listaDistritos(this.empresas.ubigeo?.departamento, this.empresas.ubigeo?.provincia).subscribe(
+        response => this.distritos = response
+      );
+    }
+    this.empresas!.ubigeo!.id = -1;
   }
 
   cargarRuta() {

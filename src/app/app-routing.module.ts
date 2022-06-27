@@ -20,6 +20,9 @@ import { CargoActualizarComponent } from './cargo/cargo-actualizar/cargo-actuali
 import { PropietarioCrearComponent } from './propietario/propietario-crear/propietario-crear.component';
 import { PropietarioListarComponent } from './propietario/propietario-listar/propietario-listar.component';
 import { PropietarioActualizarComponent } from './propietario/propietario-actualizar/propietario-actualizar.component';
+import { EmpresaActualizarComponent } from './empresa/empresa-actualizar/empresa-actualizar.component';
+import { EmpresaCrearComponent } from './empresa/empresa-crear/empresa-crear.component';
+import { EmpresaListarComponent } from './empresa/empresa-listar/empresa-listar.component';
 
 
 const routes: Routes = [
@@ -97,17 +100,32 @@ const routes: Routes = [
   {
     path: 'propietario/crear',
     component: PropietarioCrearComponent,
-    title: 'Cargo'
+    title: 'Propietario'
   },
   {
     path: 'propietario/listar',
     component: PropietarioListarComponent,
-    title: 'Cargo'
+    title: 'Propietario'
   },
   {
     path: 'propietario/actualizar',
     component: PropietarioActualizarComponent,
-    title: 'Cargo'
+    title: 'Propietario'
+  },
+  {
+    path: 'empresa/crear',
+    component: EmpresaCrearComponent,
+    title: 'Empresa'
+  },
+  {
+    path: 'empresa/listar',
+    component: EmpresaListarComponent,
+    title: 'Empresa'
+  },
+  {
+    path: 'empresa/actualizar',
+    component: EmpresaActualizarComponent,
+    title: 'Empresa'
   },
   {
     path: 'viaje',
