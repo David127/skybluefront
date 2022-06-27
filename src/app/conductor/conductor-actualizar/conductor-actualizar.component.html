@@ -59,66 +59,50 @@
                                 <h6>DATOS CONDUCTOR</h6>
                                 <hr class=" dropdown-divider">
                                 <div class="row mt-2">
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-2">
                                         <div class="form-group input-group-sm">
                                             <label >NOMBRE:</label>
                                             <input class="form-control" name="nombre" type="text"
                                             [(ngModel)]="conductores.nombre">
                                         </div>
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-2">
                                         <div class="form-group input-group-sm">
                                             <label> APELLIDO PATERNO:</label>
                                             <input  class="form-control" name="apellidoPaterno" type="text"
                                             [(ngModel)]="conductores.apellidoPaterno">
                                         </div>
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-2">
                                         <div class="form-group input-group-sm">
                                             <label> APELLIDO MATERNO:</label>
                                             <input  class="form-control" name="apellidoMaterno" type="text"
                                             [(ngModel)]="conductores.apellidoMaterno">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-2">
                                         <div class="form-group input-group-sm">
                                             <label>TIPO DOCUMENTO:</label>
                                             <input  class="form-control" name="tipoDocumento" type="text"
                                             [(ngModel)]="conductores.tipoDocumento">
                                         </div>
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-2">
                                         <div class="form-group input-group-sm">
                                             <label>NRO DOCUMENTO:</label>
                                             <input  class="form-control" name="nroDocumento" type="text"
                                             [(ngModel)]="conductores.nroDocumento">
                                         </div>
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-2">
                                         <div class="form-group input-group-sm">
-                                            <label>TELEFONO:</label>
-                                            <input  class="form-control" name="telefono" type="text"
-                                            [(ngModel)]="conductores.telefono">
+                                            <label>LICENCIA:</label>
+                                            <input class="form-control" name="nroLicenciaCorrelativo" type="text"
+                                            [(ngModel)]="conductores.nroLicenciaCorrelativo">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row mt-2">
-                                    <div class="col-lg-2">
-                                        <div class="form-group input-group-sm">
-                                            <label>CORREO:</label>
-                                            <input  class="form-control" name="correo" type="text"
-                                            [(ngModel)]="conductores.correo">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <div class="form-group input-group-sm">
-                                            <label>DIRECCION:</label>
-                                            <input  class="form-control" name="direccion" type="text"
-                                            [(ngModel)]="conductores.direccion">
-                                        </div>
-                                    </div>
                                     <div class="col-lg-2">
                                         <div class="form-group input-group-sm">
                                             <label>SEXO:</label>
@@ -135,25 +119,9 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group input-group-sm">
-                                            <label>FECHA DE NACIMIENTO:</label>
-                                            <input class="form-control" name="fechaNacimiento" type="date"
-                                            [(ngModel)]="conductores.fechaNacimiento">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <div class="form-group input-group-sm">
                                             <label>ESTADO:</label>
                                             <input class="form-control" name="estado" type="text"
                                             [(ngModel)]="conductores.estado">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-lg-2">
-                                        <div class="form-group input-group-sm">
-                                            <label>LICENCIA:</label>
-                                            <input class="form-control" name="nroLicenciaCorrelativo" type="text"
-                                            [(ngModel)]="conductores.nroLicenciaCorrelativo">
                                         </div>
                                     </div>
                                     <div class="col-lg-2">
@@ -172,11 +140,13 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group input-group-sm">
-                                            <label>FECHA DE EXPEDICION:</label>
-                                            <input class="form-control" name="fechaExpedicion" type="date"
-                                            [(ngModel)]="conductores.fechaExpedicion">
+                                            <label>RESTRICCIONES:</label>
+                                            <input class="form-control" name="restricciones" type="text"
+                                            [(ngModel)]="conductores.restricciones">
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row mt-2">
                                     <div class="col-lg-2">
                                         <div class="form-group input-group-sm">
                                             <label>FECHA DE REVALIDACION:</label>
@@ -186,9 +156,42 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group input-group-sm">
-                                            <label>RESTRICCIONES:</label>
-                                            <input class="form-control" name="restricciones" type="text"
-                                            [(ngModel)]="conductores.restricciones">
+                                            <label>FECHA DE EXPEDICION:</label>
+                                            <input class="form-control" name="fechaExpedicion" type="date"
+                                            [(ngModel)]="conductores.fechaExpedicion">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group input-group-sm">
+                                            <label>FECHA DE NACIMIENTO:</label>
+                                            <input class="form-control" name="fechaNacimiento" type="date"
+                                            [(ngModel)]="conductores.fechaNacimiento">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h6 class="mt-3">DATOS DE CONTÁCTO</h6>
+                                <hr>
+                                <div class="row mt-2">
+                                    <div class="col-lg-2">
+                                        <div class="form-group input-group-sm">
+                                            <label>CORREO:</label>
+                                            <input  class="form-control" name="correo" type="text"
+                                            [(ngModel)]="conductores.correo">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group input-group-sm">
+                                            <label>TELEFONO:</label>
+                                            <input  class="form-control" name="telefono" type="text"
+                                            [(ngModel)]="conductores.telefono">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group input-group-sm">
+                                            <label>DIRECCION:</label>
+                                            <input  class="form-control" name="direccion" type="text"
+                                            [(ngModel)]="conductores.direccion">
                                         </div>
                                     </div>
                                 </div>
