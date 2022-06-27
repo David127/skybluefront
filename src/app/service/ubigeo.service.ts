@@ -9,7 +9,7 @@ import { Ubigeo } from '../models/ubigeo';
 })
 export class UbigeoService {
   private apiUrl = `${environment.API_URL}/ubigeo/`;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   listarDepartamento(): Observable<string[]> {
     return this.http.get<string[]>(this.apiUrl + 'departamentos');

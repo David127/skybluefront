@@ -11,32 +11,32 @@ import { Vehiculo } from '../models/vehiculo';
 export class VehiculoService {
 
   private apiUrl = `${environment.API_URL}/vehiculo/`;
-    constructor(private HttpClient: HttpClient){ }
+  constructor(private HttpClient: HttpClient) { }
 
-    public vehiculoListar( page: number, pageSize: number): Observable<any>{
-      
-      let httpParams = new HttpParams(
-        {
-          fromObject: {
-            pageSize: pageSize, 
-            page: page
-          }
+  public vehiculoListar(page: number, pageSize: number): Observable<any> {
+
+    let httpParams = new HttpParams(
+      {
+        fromObject: {
+          pageSize: pageSize,
+          page: page
         }
-      );
-  
-      return this.HttpClient.post<any>(this.apiUrl + 'listar',
-			httpParams.toString(),
-			{
-				headers: new HttpHeaders()
-					.set('Content-Type', 'application/x-www-form-urlencoded')
-			}
-		);
+      }
+    );
 
-    }
+    return this.HttpClient.post<any>(this.apiUrl + 'listar',
+      httpParams.toString(),
+      {
+        headers: new HttpHeaders()
+          .set('Content-Type', 'application/x-www-form-urlencoded')
+      }
+    );
 
-    public vehiculoRegistrar(vehiculoNuevo: Vehiculo): Observable<any> {
-      return this.HttpClient.post<any>(this.apiUrl + 'registrar', vehiculoNuevo);
-  
-    }  
+  }
+
+  public vehiculoRegistrar(vehiculoNuevo: Vehiculo): Observable<any> {
+    return this.HttpClient.post<any>(this.apiUrl + 'registrar', vehiculoNuevo);
+
+  }
 
 }
