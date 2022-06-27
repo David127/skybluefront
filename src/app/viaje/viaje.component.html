@@ -196,15 +196,17 @@
                             <tbody>
                                 <tr *ngFor=" let v of viajes, let indice=index" class="text-center">
 
-                                    <td>{{ v.vehiculo.padron }}</td>
+                                    <td>{{ v.vehiculo.padron }} - {{ v.vehiculo.placa }}</td>
                                     <td>{{ v.conductor.nombre }}</td>
-                                    <td> {{ v.horaRegistro }} 46546v</td>
+                                    <td> {{ v.horaRegistro }}</td>
                                     <td>{{ v.horaSalida }}</td>
                                     <td>{{ v.nroVueltas }}</td>
                                     <td>{{v.terminal}}</td>
                                     <td>
-                                        <!-- <button (click)="buscarTrabajador(t)" [name]="t" style="width: 60px"
-                                            class="btn btn-warning btn-sm"> <i class="fa fa-fw fa-pencil-alt"></i></button> -->
+                                       <button  style="width: 60px"
+                                            class="btn btn-warning btn-sm">
+                                            <i class="fas fa-fw fa-bus-alt"></i>
+                                        </button> 
                                     </td>
                                 </tr>
                             </tbody>
