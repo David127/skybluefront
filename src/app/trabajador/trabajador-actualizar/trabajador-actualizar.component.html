@@ -257,19 +257,25 @@
                                             <th scope="col">AÑO</th>
                                             <th scope="col">MES</th>
                                             <th scope="col">SUELDO</th>
+                                            <th>
+                                                <button type="button" class="btn btn-primary btn-sm"
+                                                    data-bs-toggle="modal" data-bs-target="#NuevoSueldo">
+                                                    <i class="fa fa-fw fa-file-alt"></i>
+                                                </button>
+                                            </th>
 
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr *ngFor=" let t of sueldos, let indice=index">
-
                                             <td>{{ t.turno }}</td>
                                             <td>{{ t.anio }}</td>
                                             <td> {{ t.meses }}</td>
-                                            <td>{{ t.base }}</td>
+                                            <td>S/.{{ t.base }}</td>
                                             <td>
                                                 <!-- Button trigger modal -->
-                                                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" (click)="cargarSueldo(t)"
+                                                <button type="button" class="btn btn-warning btn-sm"
+                                                    data-bs-toggle="modal" (click)="cargarSueldo(t)"
                                                     data-bs-target="#EditarSueldo">
                                                     <i class="fa fa-fw fa-pencil-alt"></i>
                                                 </button>
@@ -318,44 +324,95 @@
                     <div class="col-lg-3">
                         <div class="form-group input-group-sm">
                             <label>TURNO:</label>
-                            <select class="form-select" id="turno" name="turno"
-                            [(ngModel)]="sueldo.turno">
-                            <option value="">SELECCIONE</option>
-                            <option value="noche">NOCHE</option>
-                            <option value="dia">DIA</option>
-                        </select>
+                            <select class="form-select" id="turno" name="turno" [(ngModel)]="sueldo.turno">
+                                <option value="">SELECCIONE</option>
+                                <option value="noche">NOCHE</option>
+                                <option value="dia">DIA</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="form-group input-group-sm">
                             <label> ANIO:</label>
-                            <input class="form-control" name="anio" id="anio"
-                                [(ngModel)]="sueldo.anio" type="text"
+                            <input class="form-control" name="anio" id="anio" [(ngModel)]="sueldo.anio" type="text"
                                 placeholder="ANIO" autocomplete="off" />
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="form-group input-group-sm">
                             <label> MES:</label>
-                            <input class="form-control" name="nombre" id="meses"
-                                [(ngModel)]="sueldo.meses" type="text" placeholder="MES"
-                                autocomplete="off" />
+                            <input class="form-control" name="nombre" id="meses" [(ngModel)]="sueldo.meses" type="text"
+                                placeholder="MES" autocomplete="off" />
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="form-group input-group-sm">
                             <label> SUELDO</label>
-                            <input class="form-control" name="base" id="base"
-                            [(ngModel)]="sueldo.base" type="text" placeholder="SUELDO"
-                            autocomplete="off" />
+                            <input class="form-control" name="base" id="base" [(ngModel)]="sueldo.base" type="text"
+                                placeholder="SUELDO" autocomplete="off" />
 
                         </div>
                     </div>
-              
+
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" (click)="sueldoActualizar(sueldo)">actualizar</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                    (click)="sueldoActualizar(sueldo)">actualizar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="NuevoSueldo">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="EditarSueldoLabel">Nuevo Sueldo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row mt-2">
+                    <div class="col-lg-3">
+                        <div class="form-group input-group-sm">
+                            <label>TURNO:</label>
+                            <select class="form-select" id="turno" name="turno" [(ngModel)]="sueldo.turno">
+                                <option value="">SELECCIONE</option>
+                                <option value="noche">NOCHE</option>
+                                <option value="dia">DIA</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group input-group-sm">
+                            <label> ANIO:</label>
+                            <input class="form-control" name="anio" id="anio" [(ngModel)]="sueldo.anio" type="text"
+                                placeholder="ANIO" autocomplete="off" />
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group input-group-sm">
+                            <label> MES:</label>
+                            <input class="form-control" name="nombre" id="meses" [(ngModel)]="sueldo.meses" type="text"
+                                placeholder="MES" autocomplete="off" />
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group input-group-sm">
+                            <label> SUELDO</label>
+                            <input class="form-control" name="base" id="base" [(ngModel)]="sueldo.base" type="text"
+                                placeholder="SUELDO" autocomplete="off" />
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                    (click)="sueldoNuevo(sueldo)">Agregar</button>
             </div>
         </div>
     </div>
