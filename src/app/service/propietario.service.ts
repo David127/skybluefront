@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { environment } from "src/environments/environment";
 import { Observable } from "rxjs";
+import { Propietario } from '../models/propietario';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +31,13 @@ export class PropietarioService {
 			}
 		);
 
+    }
+
+    public propietarioRegistrar(propietario: Propietario): Observable<any> {
+      return this.HttpClient.post<any>(this.apiUrl + 'registrar', propietario);
+    }
+
+    public propietarioActualizar(propietario: Propietario): Observable<any> {
+      return this.HttpClient.put<any>(this.apiUrl + 'actualizar', propietario);
     }
 }

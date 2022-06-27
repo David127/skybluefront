@@ -70,7 +70,7 @@
 							<td>{{ p.sexo }}</td>
 							<td>{{ p.estado }}</td>
 							<td>
-								<button  [name]="p" style="width: 60px" class="btn btn-primary btn-sm"> <i class="fa-solid fa-pencil"></i></button>
+								<button (click)="buscarPropietario(p)" [name]="p" style="width: 60px" class="btn btn-warning btn-sm"><i class="fa fa-fw fa-pencil-alt"></i></button>
 							</td>
 						</tr>
 					</tbody>
