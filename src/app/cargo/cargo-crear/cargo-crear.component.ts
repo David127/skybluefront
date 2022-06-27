@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Cargo } from 'src/app/models/cargo';
 import { CargoService } from 'src/app/service/cargo.service';
 import { TokenService } from 'src/app/service/token.service';
+import { NotificationService } from 'src/app/utils/notification.service';
+
 
 @Component({
   selector: 'app-cargo-crear',
@@ -29,6 +31,7 @@ export class CargoCrearComponent implements OnInit {
 
   constructor(
     private cargoService: CargoService,
+    private noficacionService: NotificationService,
     private router: Router,
     private tokenService: TokenService
     ) { }
@@ -43,16 +46,15 @@ export class CargoCrearComponent implements OnInit {
  registrar() {
   this.cargoService.cargoRegistrar(this.cargos).subscribe(
     data => {
+      this.noficacionService.showSuccess(data.data.message, "success")
         this.router.navigate(['/cargo/listar']);
       
     }, err => {
-      // console.log(err);
       if (err.error === null) {
         this.tokenService.logOut();
         this.router.navigate(['/login'])
       }
       this.errMsj = err.error.mensaje || err.error.mesaje;
-    }
-  )
+    })
 }
 }

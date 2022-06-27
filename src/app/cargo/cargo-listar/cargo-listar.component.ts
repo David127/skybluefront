@@ -31,6 +31,9 @@ export class CargoListarComponent implements OnInit {
   ngOnInit(): void {
     this.cargarCargo()
   }
+  Nuevo(){
+    this.router.navigate(['cargo/crear'])
+  }
 
   cargarCargo() {
     this.cargoService.cargoListar(this.page, this.pageSize).forEach(
@@ -47,6 +50,13 @@ export class CargoListarComponent implements OnInit {
         }
       });
   }
+
+  
+  buscarCargo(c: Cargo) {
+    localStorage.setItem("cargo", JSON.stringify(c));
+    this.router.navigate(["/cargo/actualizar"]);
+  }
+
 
   
   rewind(): void {
