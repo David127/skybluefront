@@ -39,4 +39,9 @@ export class VehiculoService {
 
   }
 
+    public vehiculoActualizar(vehiculoNuevo: Vehiculo): Observable<any> {
+      return this.HttpClient.put<any>(this.apiUrl + 'actualizar', vehiculoNuevo);
+  
+    }
+  
 }
