@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Conductor } from '../models/conductor';
@@ -23,7 +24,12 @@ export class ViajeComponent implements OnInit {
   viajes: Viaje[] = [];
   vehiculos: Vehiculo[] = [];
   conductores: Conductor[] = [];
-  rutas:Ruta[] = [];
+  rutas: Ruta[] = [];
+
+  today = new Date();
+  hoy =  formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a', 'en-PE', '-0500');
+  
+
   totalPages: number;
   numberOfElements: number;
   isFirst = false;
@@ -32,9 +38,11 @@ export class ViajeComponent implements OnInit {
   pageSize = 15;
   viaje: Viaje = {
     id: 0,
+    fecha:this.today,
+    horaRegistro:this.hoy.slice(10),
     vehiculo: {
       id: 0,
-      ruta:{
+      ruta: {
         id: 1
       }
     },
@@ -59,6 +67,30 @@ export class ViajeComponent implements OnInit {
     this.ListaConductor();
   }
 
+  buscarViaje(viaje) {
+
+    try {
+      var today = new Date();
+      var jstoday = '';
+      jstoday = formatDate(today, 'dd-MM-yyyy hh:mm:ss a', 'en-PE', '-0500');
+      viaje.horaSalida = jstoday.slice(10)
+
+      this.viajeService.viajeActualizar(viaje).forEach(
+        data => {
+          this.noficacionService.showSuccess(data.data.message, "Despachado")
+          this.ListarViajes();
+        })
+        .catch(err => {
+          if (err.status === 401) {
+            this.tokenService.logOut();
+            this.router.navigate(['/login'])
+          }
+
+        })
+    } catch (e) { }
+
+  }
+
   VehiculoRegistrar() {
     this.viajeService.viajeRegistrar(this.viaje).forEach(
       data => {
@@ -70,7 +102,7 @@ export class ViajeComponent implements OnInit {
           this.tokenService.logOut();
           this.router.navigate(['/login'])
         }
-     
+
       })
   }
 
@@ -92,7 +124,7 @@ export class ViajeComponent implements OnInit {
 
   }
 
-  
+
   ListaVehiculo() {
     this.vehiculoService.vehiculoListar(this.page, this.pageSize).forEach(
       (data: any) => {
