@@ -12,12 +12,8 @@ import { TrabajadorService } from 'src/app/service/trabajador.service';
 })
 export class TrabajadorListarComponent implements OnInit {
   trabajadores: Trabajador[] = [];
-  cargo: Cargo = {
-
-  }
-  trabajador: Trabajador = {
-
-  }
+  cargo: Cargo = {}
+  trabajador: Trabajador = {}
   roles: string[];
   isAdmin = false;
   page = 1;
