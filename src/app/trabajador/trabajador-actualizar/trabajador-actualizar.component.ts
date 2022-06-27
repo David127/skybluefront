@@ -61,7 +61,10 @@ export class TrabajadorActualizarComponent implements OnInit {
    */
   Editar() {
     let trabajador = localStorage.getItem('trabajador');
+    console.log(JSON.parse(trabajador))
     this.trabajadores = JSON.parse(trabajador)
+    this.trabajadores.fechaNacimiento = this.trabajadores.fechaNacimiento.split("/").reverse().join("/")
+    
   }
   /**
    * It updates the data of the employee.
