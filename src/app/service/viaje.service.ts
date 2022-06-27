@@ -39,4 +39,10 @@ export class ViajeService {
     return this.http.post<any>(this.apiUrl + 'registrar', viajeNuevo);
 
   }
+
+  public viajeActualizar(viajeNuevo: Viaje): Observable<any> {
+    return this.http.put<any>(this.apiUrl + 'actualizar', viajeNuevo);
+
+  }
+
 }

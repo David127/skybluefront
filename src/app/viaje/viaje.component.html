@@ -49,7 +49,8 @@
                         <div class="col-8">
                             <div class="input-group input-group-sm mb-2">
                                 <span class="input-group-text">FECHA</span>
-                                <input id="txtFecha" class="form-control" type="date" [(ngModel)]="viaje.fecha">
+                                <!-- <input id="txtFecha"  type="date" [(ngModel)]="viaje.fecha"> -->
+                                <input type='Date' class="form-control" [ngModel]='viaje.fecha | date:"yyyy-MM-dd" ' (ngModelChange)='viaje.fecha=$event' >
                             </div>
 
                             <div class="input-group input-group-sm ">
@@ -86,7 +87,7 @@
                         <div class="col-lg-6">
                             <div class="input-group input-group-sm mt-1">
                                 <span class="input-group-text">H. salida</span>
-                                <input class="form-control " type="time" [(ngModel)]=viaje.horaRegistro>
+                                <input class="form-control " [(ngModel)]="viaje.horaRegistro" >
                             </div>
                         </div>
                     </div>
@@ -203,10 +204,9 @@
                                     <td>{{ v.nroVueltas }}</td>
                                     <td>{{v.terminal}}</td>
                                     <td>
-                                       <button  style="width: 60px"
-                                            class="btn btn-warning btn-sm">
+                                        <button style="width: 60px" class="btn btn-warning btn-sm" (click)="buscarViaje(v)">
                                             <i class="fas fa-fw fa-bus-alt"></i>
-                                        </button> 
+                                        </button>
                                     </td>
                                 </tr>
                             </tbody>

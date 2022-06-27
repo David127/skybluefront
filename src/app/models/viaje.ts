@@ -8,7 +8,7 @@ export class Viaje {
     horaLlegada?: String;
     horaSalida?: String;
     nroVueltas?: String;
-    fecha?: String;
+    fecha?: Date;
     terminal?: String;
     vehiculo?: Vehiculo;
     conductor?: Conductor;
