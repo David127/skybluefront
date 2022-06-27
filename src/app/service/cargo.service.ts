@@ -37,5 +37,10 @@ export class CargoService {
 		return this.HttpClient.post<any>(this.apiUrl + 'registrar', cargoNuevo);
 
 	}
+	public cargoActualizar(cargoNuevo: Cargo): Observable<any> {
+		return this.HttpClient.put<any>(this.apiUrl + 'actualizar', cargoNuevo);
+
+	}
+
 
 }

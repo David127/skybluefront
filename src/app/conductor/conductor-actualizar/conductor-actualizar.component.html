@@ -1,1 +1,216 @@
-<p>conductor-actualizar works!</p>
+<app-menu></app-menu>
+<div class="container mb-2 p-1 " style="border-radius: 5px; margin-top: 52px;" >
+    <div class="card ">
+        <div class="car-body ">
+            <div class="input-group input-group-sm ">
+                <button class="btn  mr-1 " type="button">
+                    <i class="fas fa-fw fa-list"></i>
+                </button>
+                <label class="form-control ">
+                    <a href="javascript:void(0);"><i class="fa fa-fw fa-home"></i> </a>
+                    <span class="d-none d-sm-inline">
+                        CONTROL /
+                    </span>
+                
+                    <span class="" id="lblTitulo">	CONDUCTOR</span>
+                    <span style="float:right;line-height:20px;">
+                        <span  class="fa fa-fw fa-globe hidden-xs "></span>
+                    </span>
+                </label>
+                <div class="btn-group btn-group-sm">
+                    <!-- <button class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action"  title="Nuevo" (click)="Nuevo()">
+						<span class="fa fa-fw fa-file" ></span>
+					</button> -->
+                    <button class="btn btn-outline-primary  border-secondary ml-1 text-dark btn-action"
+                        routerLink="/conductor/listar" title="Buscar">
+                        <span class="fa fa-fw fa-search"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- CONDUCTOR FORMULARIO -->
+<span class="nsPanel" id="cardConductorForm" >
+    <div class="container-sm p-1">
+        <div class="card" >
+            <div class="card-header p-1">
+                <div class="input-group input-group-sm">
+                    <button class="btn btn-outline-secondary border-white  " type="button" title="" disabled>
+                        <span class="fas fa-fw fa-user-alt fa-lg"></span>
+                    </button>
+                    <label class="form-control ">FORMULARIO</label>
+					<button  class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action"  type="button" 
+						(click)="Actualizar()" >
+						<i class="fa fa-fw fa-save"></i>
+					</button>
+                </div>
+            </div>
+        
+            <div class="card-body p-2" style="height: 75vh;" >
+                <div class="" style="overflow-y: auto;">
+                    <div class="" id="divUsuarioFormContenido">
+                        
+                        <form id="frmConductor" class="form" method="POST">
+                            <div class="container">
+
+                                <!-- Datos Conductor -->
+
+                                <h6>DATOS CONDUCTOR</h6>
+                                <hr class=" dropdown-divider">
+                                <div class="row mt-2">
+                                    <div class="col-lg-4">
+                                        <div class="form-group input-group-sm">
+                                            <label >NOMBRE:</label>
+                                            <input class="form-control" name="nombre" type="text"
+                                            [(ngModel)]="conductores.nombre">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group input-group-sm">
+                                            <label> APELLIDO PATERNO:</label>
+                                            <input  class="form-control" name="apellidoPaterno" type="text"
+                                            [(ngModel)]="conductores.apellidoPaterno">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group input-group-sm">
+                                            <label> APELLIDO MATERNO:</label>
+                                            <input  class="form-control" name="apellidoMaterno" type="text"
+                                            [(ngModel)]="conductores.apellidoMaterno">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-lg-4">
+                                        <div class="form-group input-group-sm">
+                                            <label>TIPO DOCUMENTO:</label>
+                                            <input  class="form-control" name="tipoDocumento" type="text"
+                                            [(ngModel)]="conductores.tipoDocumento">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group input-group-sm">
+                                            <label>NRO DOCUMENTO:</label>
+                                            <input  class="form-control" name="nroDocumento" type="text"
+                                            [(ngModel)]="conductores.nroDocumento">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group input-group-sm">
+                                            <label>TELEFONO:</label>
+                                            <input  class="form-control" name="telefono" type="text"
+                                            [(ngModel)]="conductores.telefono">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-lg-2">
+                                        <div class="form-group input-group-sm">
+                                            <label>CORREO:</label>
+                                            <input  class="form-control" name="correo" type="text"
+                                            [(ngModel)]="conductores.correo">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group input-group-sm">
+                                            <label>DIRECCION:</label>
+                                            <input  class="form-control" name="direccion" type="text"
+                                            [(ngModel)]="conductores.direccion">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group input-group-sm">
+                                            <label>SEXO:</label>
+                                            <input  class="form-control" name="sexo" type="text"
+                                            [(ngModel)]="conductores.sexo">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group input-group-sm">
+                                            <label>ESTADO CIVIL:</label>
+                                            <input class="form-control" name="estadoCivil" type="text"
+                                            [(ngModel)]="conductores.estadoCivil">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group input-group-sm">
+                                            <label>FECHA DE NACIMIENTO:</label>
+                                            <input class="form-control" name="fechaNacimiento" type="date"
+                                            [(ngModel)]="conductores.fechaNacimiento">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group input-group-sm">
+                                            <label>ESTADO:</label>
+                                            <input class="form-control" name="estado" type="text"
+                                            [(ngModel)]="conductores.estado">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-lg-2">
+                                        <div class="form-group input-group-sm">
+                                            <label>LICENCIA:</label>
+                                            <input class="form-control" name="nroLicenciaCorrelativo" type="text"
+                                            [(ngModel)]="conductores.nroLicenciaCorrelativo">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group input-group-sm">
+                                            <label>CLASE DE CATEGORIA:</label>
+                                            <input class="form-control" name="claseCategoria" type="text"
+                                            [(ngModel)]="conductores.claseCategoria">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group input-group-sm">
+                                            <label>ESTADO DE LICENCIA:</label>
+                                            <input class="form-control" name="estadoLicencia" type="text"
+                                            [(ngModel)]="conductores.estadoLicencia">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group input-group-sm">
+                                            <label>FECHA DE EXPEDICION:</label>
+                                            <input class="form-control" name="fechaExpedicion" type="date"
+                                            [(ngModel)]="conductores.fechaExpedicion">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group input-group-sm">
+                                            <label>FECHA DE REVALIDACION:</label>
+                                            <input class="form-control" name="fechaRevalidacion" type="date"
+                                            [(ngModel)]="conductores.fechaRevalidacion">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group input-group-sm">
+                                            <label>RESTRICCIONES:</label>
+                                            <input class="form-control" name="restricciones" type="text"
+                                            [(ngModel)]="conductores.restricciones">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer ">
+                <form action="javascript:void();">
+                    <div class="input-group input-group-sm mt-2">
+                        <button class="btn btn-outline-light border" type="button">
+                            <i class="fas fa-fw fa-angle-double-left"></i>
+                        </button>
+                            <label class="form-control"></label>
+                        <button class="btn btn-outline-light border" type="button">
+                            <i class="fas fa-fw fa-angle-double-right"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</span>
