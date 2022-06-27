@@ -1,9 +1,9 @@
 export class Ruta {
     id?: number;
     clase?: string;
-    codigo_ruta?: string;
-    distacia_ida?: number;
-    distacia_vuelta?: number;
-    lugar_destino?: String;
-    lugar_origen?: String
+    codigoRuta?: string;
+    lugarOrigen?: number;
+    lugarDestino?: number;
+    distaciaIda?: String;
+    distaciaVuelta?: String
 }
