@@ -1,1 +1,181 @@
-<p>empresa-crear works!</p>
+<app-menu></app-menu>
+<div class="container mb-2 p-1 " style="border-radius: 5px; margin-top: 52px;">
+	<!-- ENCABEZADO DE PAGINA -->
+	<div class="card ">
+		<div class="car-body ">
+			<div class="input-group input-group-sm ">
+				<button class="btn  mr-1 " type="button">
+					<i class="fas fa-fw fa-list"></i>
+				</button>
+				<label class="form-control ">
+					<a href="javascript:void(0);"><i class="fa fa-fw fa-home"></i> </a>
+					<span class="d-none d-sm-inline">
+						CONTROL /
+					</span>
+
+					<span class="" id="lblTitulo">EMPRESAS</span>
+					<span style="float:right;line-height:20px;">
+						<span class="fa fa-fw fa-globe hidden-xs "></span>
+					</span>
+				</label>
+				<div class="btn-group btn-group-sm">
+					<!-- <button class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action"  title="Nuevo" (click)="Nuevo()">
+						<span class="fa fa-fw fa-file" ></span>
+					</button> -->
+					<button class="btn btn-outline-primary  border-secondary ml-1 text-dark btn-action"
+						routerLink="/empresa/listar" title="Buscar">
+						<span class="fa fa-fw fa-search"></span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- TRABAKADPR FORMULARIO -->
+	<span class="nsPanel">
+		<div class="container-sm p-1">
+			<div class="card">
+				<div class="card-header p-1">
+					<div class="input-group input-group-sm">
+						<button class="btn btn-outline-secondary border-white" type="button" title="">
+							<span class="fas fa-fw fa-user-alt fa-lg"></span>
+						</button>
+						<label class="form-control ">FORMULARIO</label>
+						<button class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action" type="button"
+							(click)="registrar()">
+							<i class="fa fa-fw fa-save"></i>
+						</button>
+					</div>
+				</div>
+
+				<div class="card-body p-2">
+					<div class="" style="overflow-y: auto;">
+						<form id="frmTrabajadores" class="form " style="height: 70vh;">
+							<div class="container">
+								<!-- Datos personales -->
+								<h6>DATOS PERSONALES</h6>
+								<hr>
+								<div class="row mt-2">
+									<div class="col-lg-3">
+										<div class="form-group input-group-sm">
+											<label> RUC:</label>
+											<input class="form-control" name="apellidoPaterno" id="apellidoPaterno"
+												[(ngModel)]="empresas.ruc" type="text"
+												placeholder="RUC" autocomplete="off" />
+										</div>
+									</div>
+									<div class="col-lg-3">
+										<div class="form-group input-group-sm">
+											<label> NOMBRE:</label>
+											<input class="form-control" name="apellidoMaterno" id="trabApellidoMaterno"
+												[(ngModel)]="empresas.nombre" type="text"
+												placeholder="NOMBRE" autocomplete="off" />
+										</div>
+									</div>
+									<div class="col-lg-3">
+										<div class="form-group input-group-sm">
+											<label> DIRECCION:</label>
+											<input class="form-control" name="nombre" id="nombre"
+												[(ngModel)]="empresas.direccion" type="text" placeholder="DIRECCION"
+												autocomplete="off" />
+										</div>
+									</div>
+									<div class="col-lg-3">
+										<div class="form-group input-group-sm">
+											<label> LOGO:</label>
+											<input class="form-control" name="nombre" id="nombre"
+												[(ngModel)]="empresas.logo" type="text" placeholder="LOGO"
+												autocomplete="off" />
+										</div>
+									</div>                                    
+								</div>
+
+								<hr>
+                                <div class="col-lg-4">
+                                    <label for="">CARGO</label>
+                                    <div class="input-group input-group-sm">
+
+                                        <select [(ngModel)]="empresas.ruta.id" id="cargo" name="cargo"
+                                            class="form-control">
+                                            <option value="0" selected> [Seleccione] </option>
+                                            <option *ngFor="let r of  rutas" value="{{ r.id}}">
+                                                {{ r.clase }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-2">
+                                    <label for="">DEPARTAMENTO</label>
+                                    <div class="input-group input-group-sm">
+                                        <!-- <select class="form-select" id="trabCodDepartamento" name="trabCodDepartamento" [(ngModel)]="trabajadores.trabCodDepartamento" [disabled]="isDisabled"></select> -->
+                                        <select [(ngModel)]="empresas.ubigeo!.departamento"
+                                            (change)="cargaProvincia()" id="departamento" name="departamento"
+                                            class="form-control">
+                                            <option value="-1"> [Seleccione] </option>
+                                            <option *ngFor="let aux of departamentos" value="{{ aux }}">
+                                                {{ aux }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <label for="">PROVINCIA</label>
+                                    <div class="input-group input-group-sm">
+                                        <!-- <select class="form-select" id="trabCodProvincia" name="trabCodProvincia" [(ngModel)]="trabajadores.trabCodProvincia" [disabled]="isDisabled"></select> -->
+                                        <select [(ngModel)]="empresas.ubigeo!.provincia"
+                                            (change)="cargaDistrito()" id="provincia" name="provincia"
+                                            class="form-control">
+                                            <option value="-1"> [Seleccione] </option>
+                                            <option *ngFor="let aux of provincias" value="{{ aux }}">
+                                                {{ aux }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <label for="">DISTRITO</label>
+                                    <div class="input-group input-group-sm">
+                                        <!-- <select class="form-select" id="trabCodDistrito" name="trabCodDistrito" [(ngModel)]="trabajadores.trabCodDistrito" [disabled]="isDisabled"></select> -->
+
+                                        <select [(ngModel)]="empresas.ubigeo!.id" id="distrito" name="distrito"
+                                            class="form-control">
+                                            <option value="0"> [Seleccione] </option>
+                                            <option *ngFor="let aux of  distritos" value="{{ aux.id }}">
+                                                {{ aux.distrito }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+								<div class="row mt-2">
+									<div class="col-lg-6">
+										<label for="">EMAIL</label>
+										<div class="input-group input-group-sm">
+											<input class="form-control" type="text" id="correo" name="correo"
+												[(ngModel)]="empresas.correo" placeholder="EMAIL">
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<label for="">TELEFONO</label>
+										<div class="input-group input-group-sm">
+											<input class="form-control" type="text" id="telefono" name="telefono"
+												[(ngModel)]="empresas.telefono" placeholder="TELEFONO">
+										</div>
+									</div>
+								</div>
+
+                                <hr>
+
+                                
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</span>
+</div>
+
+

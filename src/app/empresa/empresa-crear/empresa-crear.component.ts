@@ -18,6 +18,8 @@ export class EmpresaCrearComponent implements OnInit {
 
   rutas: Ruta[] = [];
   distritos: Ubigeo[] = [];
+  departamentos: string[] = [];
+  provincias: string[] = [];
 
   user = new TokenService;
   isLogged: boolean = false;
@@ -33,7 +35,10 @@ export class EmpresaCrearComponent implements OnInit {
       id: 1
     },
     ubigeo: {
-      id: 0
+      id: 0,
+      departamento: "-1",
+      provincia: "-1",
+      distrito: "-1",
     },
   };
 
@@ -44,7 +49,14 @@ export class EmpresaCrearComponent implements OnInit {
     private ubigeoService: UbigeoService,
     private tokenService: TokenService,
     private rutaService: RutaService
-  ) { }
+  ) {     
+    this.ubigeoService.listarDepartamento().forEach(
+    response => this.departamentos = response
+  ).catch((error: any) => {
+    if (error.status == "401")
+      noficacionService.showError("Sesion finalizada", "error");
+  })
+}
 
   ngOnInit(): void {
     this.cargarRuta();
@@ -82,4 +94,22 @@ export class EmpresaCrearComponent implements OnInit {
         this.errMsj = err.error.mensaje || err.error.mesaje;
       })
   }
+
+  cargaProvincia() {
+    this.ubigeoService.listaProvincias(this.empresas.ubigeo?.departamento).forEach(
+      response => this.provincias = response
+    ).catch((error: any) => {
+      console.error(error)
+    })
+  }
+
+  /**
+   * It loads the districts of the selected province.
+   */
+  cargaDistrito() {
+    this.ubigeoService.listaDistritos(this.empresas.ubigeo?.departamento, this.empresas.ubigeo?.provincia).subscribe(
+      response => this.distritos = response
+    );
+  }
+
 }
