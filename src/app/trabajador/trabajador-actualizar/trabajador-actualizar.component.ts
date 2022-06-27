@@ -67,8 +67,6 @@ export class TrabajadorActualizarComponent implements OnInit {
    * It updates the data of the employee.
    */
   Actualizar() {
-    console.log(this.trabajadores.sueldos)
-    console.log(this.sueldos)
     this.trabajadorService.trabajadorActualizar(this.trabajadores).forEach(
       data => {
         this.noficacionService.showSuccess(data.data.message, "success")
@@ -130,14 +128,18 @@ export class TrabajadorActualizarComponent implements OnInit {
   cargarSueldo(s) {
     this.sueldo = s;
   }
-  sueldoActualizar(sueldo) {
-    this.objTrabajador =  this.trabajadores.sueldos.find(s => s.id === sueldo.id)
-   
-    console.log(this.objTrabajador)
+  sueldoActualizar(sueld) {
+    var s = this.trabajadores.sueldos.find(s => s.id === sueld.id)
+    s.base = sueld.base;
+    s.anio = sueld.anio;
+    s.id = sueld.id;
+    s.turno = sueld.turno;
+    
 
-
-    //this.trabajadores.sueldos.find(s => sueldo.id)
-   // console.log(this.trabajadores.sueldos)
+  }
+  sueldoNuevo(sueld){
+    this.sueldos.push(sueld);
+    this.trabajadores.sueldos.push(sueld);
   }
 
 

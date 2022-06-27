@@ -30,6 +30,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { TrabajadorActualizarComponent } from './trabajador/trabajador-actualizar/trabajador-actualizar.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +53,8 @@ import { TrabajadorActualizarComponent } from './trabajador/trabajador-actualiza
     CargoListarComponent,
     PropietarioListarComponent,
     PropietarioCrearComponent,
-    PropietarioActualizarComponent
+    PropietarioActualizarComponent,
+    
   ],
   imports: [
     AppRoutingModule,
