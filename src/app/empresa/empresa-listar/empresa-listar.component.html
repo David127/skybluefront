@@ -1,0 +1,100 @@
+<app-menu></app-menu>
+<div class="container mb-2 p-1 " style="border-radius: 5px; margin-top: 52px;">
+	<div class="card ">
+		<div class="car-body ">
+			<div class="input-group input-group-sm ">
+				<button class="btn  mr-1 " type="button">
+					<i class="fas fa-fw fa-list"></i>
+				</button>
+				<label class="form-control ">
+					<!-- <a href="javascript:void(0);"><i class="fa fa-fw fa-home"></i> </a> -->
+					<!-- <span class="d-none d-sm-inline">
+						CONTROL /
+					</span> -->
+					<span class="" id="lblTitulo"> EMPRESAS</span>
+					<!-- <span style="float:right;line-height:20px;">
+						<span  class="fa fa-fw fa-globe hidden-xs "></span>
+					</span> -->
+				</label>
+				<div class="btn-group btn-group-sm">
+					<!--
+                    <button *ngIf="isAdmin" class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action"
+						routerLink="/empresa" title="Nuevo">
+						<span class="fa fa-fw fa-file"></span>
+					</button>
+                    -->
+					<button class="btn btn-outline-primary  border-secondary ml-1 text-dark btn-action"
+						data-action="buscar" title="Buscar">
+						<span class="fa fa-fw fa-search"></span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- EMPRESA BUSCAR -->
+
+<span class="Panel" id="empresaDesktop">
+	<div class="container-sm p-1">
+		<div class="card">
+			<div class="card-header p-1">
+				<div class="input-group input-group-sm">
+					<button class="btn btn-outline-secondary border-white mr-1 " type="button" title="" disabled>
+						<span class="fas fa-fw fa-user-alt fa-lg"></span>
+					</button>
+					<label class="form-control text-truncate">BUSCAR</label>
+					<button class="btn btn-outline-warning border-secondary ml-1 text-dark btn-action" type="button"
+						title="Nuevo" (click)="Nuevo()">
+						<i class="fa fa-fw fa-file"></i>
+					</button>
+				</div>
+			</div>
+
+			<div class="card-body p-2 overflow-auto" style="height: 75vh;">
+				<table class="table table-responsive">
+					<thead>
+						<tr>
+							<!-- <th scope="col" >#</th> -->
+							<th scope="col">RUC</th>
+							<th scope="col">NOMBRE</th>
+							<th scope="col">DIRECCION</th>
+							<th scope="col">TELEFONO</th>
+							<th scope="col">CORREO</th>
+							<th scope="col">UBIGEO</th>
+                            <th scope="col">RUTA</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor=" let e of empresas, let indice=index" class="text-center">
+							<!-- <th scope="row">{{indice+1}}</th> -->
+							<td>{{ e.ruc }}</td>
+							<td>{{ e.nombre }} </td>
+							<td> {{ e.direccion }} 46546v</td>
+							<td>{{ e.telefono }}</td>							
+                            <td>{{ e.correo}}</td>
+							<td>{{ e.ubigeo.departamento }}</td>
+							<td>{{ e.ruta.codigo_ruta }}</td>
+							<td>
+								<button (click)="buscarEmpresa(e)" [name]="e" style="width: 60px"
+									class="btn btn-warning btn-sm"> <i class="fa fa-fw fa-pencil-alt"></i></button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="card-footer ">
+				<form action="javascript:void();">
+					<div class="input-group input-group-sm mt-2">
+						<button class="btn btn-outline border" (click)="rewind()" type="button">
+							<i class="fas fa-fw fa-angle-double-left"></i>
+						</button>
+						<label class="form-control"></label>
+						<button class="btn btn-outline border" (click)="forward()" type="button">
+							<i class="fas fa-fw fa-angle-double-right"></i>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</span>

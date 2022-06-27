@@ -28,6 +28,9 @@ import { PropietarioActualizarComponent } from './propietario/propietario-actual
 import { interceptorProvider } from './interceptor/login.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { TrabajadorActualizarComponent } from './trabajador/trabajador-actualizar/trabajador-actualizar.component';
+import { EmpresaCrearComponent } from './empresa/empresa-crear/empresa-crear.component';
+import { EmpresaListarComponent } from './empresa/empresa-listar/empresa-listar.component';
+import { EmpresaActualizarComponent } from './empresa/empresa-actualizar/empresa-actualizar.component';
 
 
 
@@ -54,6 +57,9 @@ import { TrabajadorActualizarComponent } from './trabajador/trabajador-actualiza
     PropietarioListarComponent,
     PropietarioCrearComponent,
     PropietarioActualizarComponent,
+    EmpresaCrearComponent,
+    EmpresaListarComponent,
+    EmpresaActualizarComponent,
     
   ],
   imports: [
