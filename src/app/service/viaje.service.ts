@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
+import { Viaje } from '../models/viaje';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,12 @@ export class ViajeService {
           .set('Content-Type', 'application/x-www-form-urlencoded')
       }
     );
+
+  }
+
+
+  public viajeRegistrar(viajeNuevo: Viaje): Observable<any> {
+    return this.http.post<any>(this.apiUrl + 'registrar', viajeNuevo);
 
   }
 }
