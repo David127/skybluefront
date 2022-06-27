@@ -1,4 +1,5 @@
 import { Conductor } from "./conductor";
+import { Ruta } from "./ruta";
 import { Vehiculo } from "./vehiculo";
 
 export class Viaje {
@@ -11,5 +12,5 @@ export class Viaje {
     terminal?: String;
     vehiculo?: Vehiculo;
     conductor?: Conductor;
-
+  
 }
