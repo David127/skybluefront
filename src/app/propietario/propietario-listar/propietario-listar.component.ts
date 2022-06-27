@@ -66,6 +66,11 @@ export class PropietarioListarComponent implements OnInit {
       });
   }
 
+  buscarPropietario(p: Propietario) {
+    localStorage.setItem("propietario", JSON.stringify(p));
+    this.router.navigate(["/propietario/actualizar"]);
+  }
+
   rewind(): void {
     if (!this.isFirst) {
       this.page--;
